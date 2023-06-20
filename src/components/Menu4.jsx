@@ -4,7 +4,7 @@ import { BiLogOut } from "react-icons/bi";
 import logout from "../../public/images/icon-logout.svg";
 import FileSaver from "file-saver";
 import axios from "axios";
-import { Alert, } from "@material-tailwind/react";
+import { Alert } from "@material-tailwind/react";
 
 function Menu4() {
   const [isLoading, setIsLoading] = useState(true);
@@ -177,7 +177,7 @@ function Menu4() {
 
   return (
     <div className=" flex flex-col  bg-gray-200 sm:h-screen m-0   ">
-      <div className="flex  items-center justify-between item-center text-white bg-red-400 px-5 py-[23px] sm:py-[23px] md:py-[30px] lg:py-[22px] xl:py-[23px] ">
+      <div className="flex  items-center justify-between item-center text-white bg-red-400 px-5 py-[20px] sm:py-[20px] md:py-[22px] lg:py-[22px] xl:py-[23px] ">
         <div className="flex w-[15%]">
           <h1 className=" text-center lg:text-lg">รายงาน</h1>
         </div>
@@ -197,12 +197,12 @@ function Menu4() {
           )}
         </div>
 
-        <div className="flex w-[50%] md:w-[10%] items-center justify-center text-center">
+        <div className="flex w-[50%] md:w-[10%]  justify-end text-center">
           <button
             onClick={handleLogout}
             className="flex justify-center  text-center align-middle rounded-lg  font-bold hover:text-black"
           >
-            <img src={logout} className=" text-center justify-center" />
+            <img src={logout} className="  text-center  justify-center" />
           </button>
         </div>
       </div>

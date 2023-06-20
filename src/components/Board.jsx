@@ -1,7 +1,6 @@
-import bgImage from "../assets/images/bg.jpg";
-// import lanternLeft2 from "../assets/images/lantern-left-2.png";
-import lanternRight2 from "../assets/images/lantern-right-2.png";
-import lionright from "../assets/images/lion-right.gif";
+import bgImage from "../images/bg.jpg";
+import lanternRight2 from "../images/lantern-right-2.png";
+import lionright from "../images/lion-right.gif";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../App.css";
@@ -87,34 +86,10 @@ function Board() {
     });
   }, []);
 
-  // #################################################################
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         "https://bankcash1.herokuapp.com/Show"
-  //       );
-  //       const newData = response.data[0];
-  //       setData(newData);
-  //       // console.log(newData);
-  //       setLoadStatus(true);
-  //     } catch (error) {
-  //       console.error("เกิดข้อผิดพลาดในการดึกข้อมูล", error);
-  //       setLoadStatus(false);
-  //     }
-  //   };
-
-  //   fetchData()
-  // }, []);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `${api}/Show/List/Top`
-          // "https://bankcash1.herokuapp.com/Show/List/Top"
-        );
+        const response = await axios.get(`${api}/Show/List/Top`);
         setShowTop(response.data);
         // console.log(response.data);
       } catch (error) {
@@ -139,17 +114,11 @@ function Board() {
     if (number == 3) {
       setTimeout(async () => {
         try {
-          const response1 = await axios.get(
-            `${api}/Show/List/TopTire`
-            // "https://bankcash1.herokuapp.com/Show/List/TopTire"
-          );
+          const response1 = await axios.get(`${api}/Show/List/TopTire`);
           // console.log(response1.data);
         } catch (error) {
           console.error("ไม่สามารถเรียกดูข้อมูล TopTire ได้", error);
-          const response2 = await axios.get(
-            `${api}/Show/Report/${id}/Detail`
-            // `https://bankcash1.herokuapp.com/Show/Report/${data.id_auctionstarted}/Detail`
-          );
+          const response2 = await axios.get(`${api}/Show/Report/${id}/Detail`);
           setShowTopTier(response2.data);
         }
         setDelayRender(true);
@@ -162,7 +131,6 @@ function Board() {
   return (
     <div
       className="flex flex-col h-screen w-screen bg-red-200 "
-      // className="flex flex-col h-screen w-screen "
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
@@ -193,23 +161,14 @@ function Board() {
             <div className=" flex w-[30%] sm:w-[25%] md:w-[25%] lg:w-[18%] xl:w-[15%]  absolute bottom-0 right-0  md:right-[5px] lg:right-[-5px] xl:right-[5px]  z-10  ">
               <img src={lionright} alt="lanternLeft" />
             </div>
-            {/* <div className=" flex flex-col justify-center items-center w-full   sm:mt-5 lg:mt-0 bg-opacity-40 bg-red-200  transform translate-y-20 mx-16  pb-5  sm:pb-10 md:pb-15 lg:pb-20   rounded-3xl"> */}
+
             <div className=" flex flex-col justify-center items-center w-full   sm:mt-5 lg:mt-0 bg-opacity-40 bg-red-200  transform translate-y-20 mx-16  pb-5  sm:pb-10 md:pb-15 lg:pb-20   rounded-3xl">
               <div className="flex justify-center ">
                 <h1 className="text-stroke-white1 text-gradient1 text-2xl sm:text-4xl lg:text-5xl mt-5 text-center font-black ">
                   ขอแสดงความยินดี
                 </h1>
-                {/* <h1 className=" text-2xl sm:text-4xl lg:text-5xl mt-5 text-center font-black ">
-                  ขอแสดงความยินดี
-                </h1> */}
               </div>
-              {/* <div className="flex w-[90%] justify-center text-center items-center mt-7 sm:w-[70%] md:w-[40%] lg:mt-10 sm:text-2xl lg:text-4xl bg-red-900 rounded-lg border-2 sm:py-1 border-yellow-400 text-white ">
-                <h1>{showTop[0].user_auction}</h1>
-              </div> */}
-              {/* <div className="flex w-[90%] justify-center text-center items-center mt-7 sm:w-[70%] md:w-[40%] lg:mt-10 sm:text-2xl lg:text-4xl  sm:py-1  ">
-                <h1>    {showTopTier?.Customer && showTopTier.Customer !== "" ? showTopTier.Customer : ""}
-                  </h1>
-              </div> */}
+
               <div className="flex w-[90%] justify-center text-center items-center mt-7 sm:w-[70%] md:w-[40%] lg:mt-10 sm:text-2xl lg:text-4xl bg-red-900 rounded-lg border-2 sm:py-1 border-yellow-400 text-white">
                 <h1>
                   {" "}
@@ -218,28 +177,13 @@ function Board() {
                     : ""}
                 </h1>
               </div>
-              {/* <div className="flex justify-center  ">
-                <h1 className="text-stroke-white2 text-gradient2 text-3xl sm:text-5xl text-center mt-5 sm:mt-10  font-bold">
-                  {data && data.auctionstarted_auction_topic
-                    ? data.auctionstarted_auction_topic
-                    : ""}
-                </h1>
-            
-              </div> */}
+
               <div className="flex justify-center  ">
-                {/* <h1 className=" text-3xl sm:text-5xl text-center mt-5 sm:mt-10  font-bold">
-                  {showTopTier && showTopTier?.AuctionTopic
-                    ? showTopTier.AuctionTopic
-                    : ""}
-                </h1> */}
                 <h1 className=" text-stroke-white2 text-gradient2 text-3xl sm:text-5xl text-center mt-5 sm:mt-10  font-bold">
-                  {Title && Title
-                    ? Title
-                    : ""}
+                  {Title && Title ? Title : ""}
                 </h1>
               </div>
               <div className="flex w-[90%] justify-center text-center  mt-3 sm:mt-5 sm:text-lg md:mt-5 lg:text-2xl lg:py-3 font-semibold ">
-                {/* {(showTopTier && showTopTier?.Gift) || "ของแถม : ไม่มีรายการ"} */}
                 {(gift && gift) || "ของแถม : ไม่มีรายการ"}
               </div>
 
@@ -248,9 +192,6 @@ function Board() {
                   มูลค่า{" "}
                   <span>
                     {" "}
-                    {/* {showTop[0].auction_result_price.toLocaleString()}{" "} */}
-                    {/* ดักค่า undefined */}
-                    {/* {showTopTier?.Price?.toLocaleString() && showTopTier?.Price?.toLocaleString() !== "" ? showTopTier?.Price?.toLocaleString() : ""} */}
                     {showTop?.[0]?.auction_result_price?.toLocaleString() &&
                     showTop?.[0].auction_result_price?.toLocaleString() !== ""
                       ? showTop?.[0].auction_result_price?.toLocaleString()
@@ -259,16 +200,6 @@ function Board() {
                   บาท{" "}
                 </h1>
               </div>
-              {/* <div >
-                <h1 className=" text-stroke-white text-gradient  text-xl sm:text-5xl text-center mt-5  font-bold ">
-                  มูลค่า{" "}
-                  <span>
-                    {" "}
-                    {showTop[0].auction_result_price.toLocaleString()}{" "}
-                  </span>{" "}
-                  บาท{" "}
-                </h1>
-              </div> */}
             </div>
           </div>
         ) : (
@@ -294,7 +225,6 @@ function Board() {
                     src="/images/no-second.png"
                     alt="first"
                     style={{ width: "70%", height: "auto" }}
-                  
                   />
                 )}
                 {number === "3" && (
@@ -302,7 +232,6 @@ function Board() {
                     src="/images/no-third.png"
                     alt="first"
                     style={{ width: "80%", height: "auto" }}
-                  
                   />
                 )}
               </div>
@@ -311,7 +240,6 @@ function Board() {
             )}
 
             {loadStatus ? (
-              // <div className="w-full pt-10 pb-5   bg-opacity-40 bg-red-200  transform translate-y-20 mx-20  lg:pt-5  sm:pb-3 lg:py-10   rounded-3xl">
               <div
                 className={`w-full pt-10 pb-5   bg-opacity-40 ${
                   Title ? "bg-red-200" : ""
@@ -347,7 +275,6 @@ function Board() {
                 ) : (
                   <div className="flex flex-col justify-center items-center mt-5">
                     {showTop.length > 0 && showTop[0] && (
-                      // <div className="w-full max-w-[90%] md:w-[80%] lg:w-[80%] xl:w-[80%]  mt-3 sm:mt-8 font-bold   sm:text-xl md:text-3xl lg:text-4xl py-4   px-3">
                       <div className="w-full max-w-[90%] md:w-[80%] lg:w-[80%] xl:w-[80%]  mt-3 sm:mt-5 font-bold  bg-opacity-70 bg-red-100  sm:text-xl md:text-3xl lg:text-4xl py-4  shadow-md shadow-black rounded-2xl px-3">
                         <div className="flex justify-between">
                           <div>

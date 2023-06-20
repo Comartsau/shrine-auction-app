@@ -157,9 +157,9 @@ function Menu1() {
 
   return (
     <div className=" flex flex-col  bg-gray-200 h-screen ms-0 ">
-      <div className="flex  items-center justify-between item-center text-white bg-red-400 px-5 py-[23px] sm:py-[23px] md:py-[30px] lg:py-[22px] xl:py-[23px] ">
-        <div className="flex w-[40%]md:w-[15%]">
-          <h1 className=" text-center lg:text-lg">สร้างหัวข้อการประมูล</h1>
+      <div className="flex  items-center justify-between item-center text-white bg-red-400 px-5 py-[20px] sm:py-[20px] md:py-[22px] lg:py-[22px] xl:py-[23px] ">
+        <div className="flex  w-full lg:w-[30%]  ">
+          <h1 className="w-full text-start lg:text-lg">สร้างหัวข้อการประมูล</h1>
         </div>
         <div className="flex w-[30%] items-center align-bottom  text-end">
           {showAlert1 && (
@@ -177,12 +177,12 @@ function Menu1() {
           )}
         </div>
 
-        <div className="flex w-[50%] md:w-[10%] items-center justify-center text-center">
+        <div className="flex w-[50%] md:w-[10%]  justify-end text-center">
           <button
             onClick={handleLogout}
             className="flex justify-center  text-center align-middle rounded-lg  font-bold hover:text-black"
           >
-            <img src={logout} className=" text-center justify-center" />
+            <img src={logout} className="  text-center  justify-center" />
           </button>
         </div>
       </div>

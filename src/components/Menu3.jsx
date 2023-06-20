@@ -545,9 +545,9 @@ function Menu3() {
   return (
     <div className=" flex flex-col  bg-gray-200 h-screen m-0  ">
       {/* Header bar */}
-      <div className="flex  items-center justify-between item-center text-white bg-red-400 px-5 py-[23px] sm:py-[23px] md:py-[30px] lg:py-[22px] xl:py-[23px] ">
-        <div className="flex  w-[40%]md:w-[15%]">
-          <h1 className=" text-center lg:text-lg">เริ่มการประมูล</h1>
+      <div className="flex  items-center justify-between item-center text-white bg-red-400 px-5 py-[20px] sm:py-[20px] md:py-[22px] lg:py-[22px] xl:py-[23px] ">
+        <div className="flex  w-full lg:w-[15%]">
+          <h1 className="w-full text-start lg:text-lg">เริ่มการประมูล</h1>
         </div>
         <div className="flex w-[30%] items-center align-bottom  text-end">
           {showAlert1 && (
@@ -565,7 +565,7 @@ function Menu3() {
           )}
         </div>
 
-        <div className="flex w-[50%] md:w-[10%] items-center justify-center text-center">
+        <div className="flex w-[50%] md:w-[10%]  justify-end text-center">
           <button
             onClick={handleLogout}
             className="flex justify-center  text-center align-middle rounded-lg  font-bold hover:text-black"
@@ -671,16 +671,6 @@ function Menu3() {
               }}
             >
               <div className="flex flex-col   justify-center items-center align-middle text-center">
-                {/* <button
-                  className=" w-full flex justify-end font-semibold text-2xl text-red-500"
-                  onClick={closeModal}
-                >
-                  <img
-                    src={logout}
-                    alt=""
-                    className="   text-center justify-center"
-                  />
-                </button> */}
                 <button
                   className=" w-full flex justify-end font-bold text-2xl text-red-500"
                   onClick={closeModal}
@@ -708,10 +698,10 @@ function Menu3() {
                   </button>
                 </div>
               </div>
-
+              {/* ตารางของแถม */}
               <div className="w-full mt-5  overflow-x-auto  max-h-72 flex-col justify-center ">
-                <div className=" w-full flex justify-center items-center align-middle">
-                  <table className="w-[80%]  bg-white ">
+                <div className=" w-full flex justify-center items-center align-middle ">
+                  <table className="w-full border border-gray-300 shadow-lg bg-white p-5  ">
                     <thead className="sticky top-0">
                       <tr>
                         <th className=" px-6 py-3 border-b border-gray-200 bg-indigo-300 text-center font-semibold text-sm leading-4  tracking-wider">
@@ -769,221 +759,105 @@ function Menu3() {
           )}
           <hr className="my-2  border-black" /> {/* เส้นคั่น */}
           {/* เพิ่มรายชื่อประมูล */}
-          <div className="w-full  flex justify-center sm:justify-between ">
-            <div className="w-full md:w-1/2 order-1  ">
-              <div className="flex flex-row mt-2 ms-2 sm:ms-14 ">
-                <h1 className=" text-sm font-semibold text-left lg:text-base">
-                  ผู้ประมูล :
-                  <span className=" ms-3 sm:ms-3 lg:ms-3 mt-3 font-bold text-sm lg:text-base ">
-                    {chooseCustomer}
-                  </span>
-                </h1>
-              </div>
-
-              <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-center align-middle mt-5">
-                <div className="flex  justify-center lg:justify-start   sm:w-[70%] md:w-[120px] lg:w-[90px]">
-                  <h1 className="flex text-sm lg:text-base  justify-center lg:justify-start lg:ms-3  ">
-                    จำนวนเงิน
-                  </h1>
-                </div>
-                <div className="w-[50%] sm:w-[50%] md:w-[50%] mt-3 sm:ms-1 lg:mt-0  lg:w-[30%] flex justify-center sm:justify-start md:justify-start md:ms-2 lg:ms-0  lg:mr-2">
-                  <input
-                    type="number"
-                    min="0"
-                    value={inputPrice}
-                    onChange={(e) => setInputPrice(e.target.value)}
-                    className=" w-full justify-center lg:justify-start items-center lg:py-2  text-center lg:text-end  border rounded-lg bg-gray-200  px-2 py-1 leading-tight text-gray-700 shadow-md appearance-none focus:outline-none focus:shadow-outline "
-                  />
-                </div>
-                {/* <div className="flex mt-3 justify-center text-sm ">บาท</div> */}
-                <div className="flex mt-3 lg:mt-0 w-[40%] sm:w-[40%] lg:w-[30%] items-center justify-center ">
-                  <button
-                    className=" flex w-full py-1 lg:py-2 lg:mt-1 hover:bg-green-300 hover:text-black   text-green-500 font-semibold  bg-green-300  active:bg-green-300 active:text-white bg-opacity-30  rounded-lg focus:outline-none focus:shadow-outline"
-                    onClick={handleSave}
-                  >
-                    <h1 className="w-full flex justify-center text-sm lg:text-base">
-                      {" "}
-                      บันทึก
+          <div className="w-full  flex justify-center  ">
+            <div className="flex w-full flex-col lg:flex-row">
+              <div className="w-full lg:w-1/2 order-1  ">
+                <div className="flex flex-col w-full ">
+                  <div className="flex flex-row mt-10 ms-2 sm:ms-14 lg:ms-10 ">
+                    <h1 className=" text-base  text-left lg:text-base">
+                      ผู้ประมูล :
+                      <span className=" ms-3 sm:ms-3 lg:ms-3 mt-3 font-bold text-lg lg:text-base ">
+                        {chooseCustomer}
+                      </span>
                     </h1>
-                  </button>
-                </div>
-              </div>
+                  </div>
 
-              {!isSmallScreen3 && (
-                <div className="flex-col  w-full mt-10  justify-center items-center">
-                  <div className="w-full flex-col justify-center">
-                    <div className="flex justify-center">
+                  <div className="flex flex-col md:flex-row lg:flex-row items-center justify-center  lg:justify-center align-middle mt-5">
+                    <div className="flex  justify-center md:align-middle lg:justify-start   sm:w-[70%] md:w-[120px] lg:w-[90px]">
+                      <h1 className="flex text-sm lg:text-base  justify-center lg:justify-start lg:ms-3  ">
+                        จำนวนเงิน
+                      </h1>
+                    </div>
+                    <div className="w-[30%] sm:w-[30%] md:w-[15%] mt-3 md:mt-0 md:ms-0 lg:mt-0  lg:w-[30%] flex justify-center sm:justify-start lg:justify-start lg:ms-0  lg:mr-2">
                       <input
-                        type="text"
-                        placeholder="ใส่ชื่อที่ต้องการค้นหา"
-                        className="w-[70%] border rounded-lg bg-gray-200 text-center  px-2 py-1 leading-tight text-gray-700  shadow-md appearance-none focus:outline-none focus:shadow-outline"
-                        value={searchText}
-                        onChange={(e) => setSearchText(e.target.value)}
+                        type="number"
+                        min="0"
+                        value={inputPrice}
+                        onChange={(e) => setInputPrice(e.target.value)}
+                        className=" w-full justify-center lg:justify-start items-center lg:py-2  text-center lg:text-end  border rounded-lg bg-gray-200  px-2 py-1 leading-tight text-gray-700 shadow-md appearance-none focus:outline-none focus:shadow-outline "
                       />
                     </div>
-
-                    <div className="flex  justify-center lg:justify-start  w-full">
+                    {/* <div className="flex mt-3 justify-center text-sm ">บาท</div> */}
+                    <div className="flex mt-5 md:mt-0 lg:mt-0 w-[30%] sm:w-[30%] md:w-[17%] md:ms-10 lg:w-[30%] items-center justify-center ">
                       <button
-                        className=" w-[110px] py-2  ms-2   mt-3 lg:mt-0  text-sm  md:ms-7   text-sky-500 font-semibold  bg-sky-300 active:bg-sky-300 active:text-white  bg-opacity-30  rounded-lg focus:outline-none focus:shadow-outline"
-                        // onClick={handleAddCustomer}
-                        onClick={openModal4}
+                        className=" flex w-full py-2 lg:mt-1 hover:bg-green-300 hover:text-black   text-green-500 font-semibold  bg-green-300  active:bg-green-300 active:text-white bg-opacity-30  rounded-lg focus:outline-none focus:shadow-outline"
+                        onClick={handleSave}
                       >
-                        เพิ่มรายชื่อ
+                        <h1 className="w-full flex justify-center text-sm lg:text-base">
+                          {" "}
+                          บันทึก
+                        </h1>
                       </button>
                     </div>
+                  </div>
 
-                    {setShowModal4 && (
-                      <Modal
-                        isOpen={modalIsOpen4}
-                        onRequestClose={closeModal4}
-                        contentLabel="Giveway Modal"
-                        style={{
-                          content: {
-                            width: "50%",
-                            height: "50%",
-                            // position:"fixed",
-                            top: "50%",
-                            left: "50%",
-                            transform: "translate(-50%, -50%)",
-                            boxShadow: "0 2px 4px rgba(0, 0, 0, 0.3)",
-                            backgroundColor: "rgb(229 231 235)",
-                          },
-                          overlay: {
-                            display: "flex",
-                            justifyContent: "center",
-                            backdropFilter: "blur(2px)",
-                          },
-                        }}
+                  <div className="w-full  mt-10 sm:mt-5 flex-col justify-center   ">
+                    <div className="flex flex-col  sm:flex-row justify-center  items-center">
+                      {/*  button รีเซ็ท */}
+                      <button
+                        className={
+                          active == 0
+                            ? "flex  px-3 py-4 mx-5 sm:mt-3 lg:mt-2  bg-gray-800  hover:bg-gray-800 p-1 rounded-full text-white  font-semibold"
+                            : "flex  px-3 py-4 mx-5 sm:mt-3 lg:mt-2  bg-gray-600  hover:bg-gray-800 p-1 rounded-full text-white  font-semibold"
+                        }
+                        onClick={() => handleButtonValue(0)}
                       >
-                        <div className="flex flex-col mt-5  justify-center items-center align-middle text-center">
-                          <button
-                            className=" w-full flex justify-end font-semibold text-2xl text-red-500 "
-                            onClick={closeModal4}
-                          >
-                            <BiLogOut className="  text-3xl  text-center justify-center" />
-                          </button>
-                          <h2 className="text-lg font-semibold ">
-                            เพิ่มรายชื่อ
-                          </h2>
-                          <input
-                            type="text"
-                            className=" w-full md:w-full border rounded-lg bg-gray-100 mt-3  px-2 py-1 leading-tight text-gray-700  shadow-md appearance-none focus:outline-none focus:shadow-outline"
-                            value={inputName}
-                            onChange={(e) => setInputName(e.target.value)}
-                          />
+                        <div>รีเซ็ท </div>
+                      </button>
 
-                          <div className="flex  justify-center lg:justify-start  w-full">
-                            <button
-                              className=" w-[110px] py-2  ms-2   mt-5 lg:mt-0  text-sm  md:ms-7  text-sky-500 font-semibold  bg-sky-300 active:bg-sky-300 active:text-white  bg-opacity-30  rounded-lg focus:outline-none focus:shadow-outline"
-                              onClick={handleAddCustomer}
-                            >
-                              เพิ่มชื่อใหม่
-                            </button>
-                          </div>
-                        </div>
-                      </Modal>
-                    )}
+                      <div className="flex">
+                        {/*  button 1 */}
+                        <button
+                          className={
+                            active == 1
+                              ? "flex px-5 py-3 mx-5 mt-3  bg-green-800  hover:bg-green-800 p-1 rounded-full text-white  font-semibold text-lg"
+                              : "flex px-5 py-3 mx-5 mt-3  bg-green-600  hover:bg-green-800 p-1 rounded-full text-white  font-semibold text-lg"
+                          }
+                          onClick={() => handleButtonValue(1)}
+                        >
+                          1<span className="text-green-600">.</span>
+                        </button>
 
-                    <div className="w-full   overflow-x-auto max-h-48 flex-col rounded-lg justify-center ">
-                      <div className=" w-full flex mt-3 justify-center items-center align-middle">
-                        <table className="w-full  bg-white ">
-                          <thead className="sticky top-0">
-                            <tr>
-                              <th className=" px-6 py-3 border-b border-gray-200 bg-indigo-300 text-center font-semibold text-sm leading-4  tracking-wider">
-                                รายชื่อผู้ร่วมประมูล
-                              </th>
-                              <th className="px-6 py-3 border-b border-gray-200  bg-indigo-300  text-center text-sm leading-4 font-semibold  tracking-wider">
-                                เลือก
-                              </th>
-                            </tr>
-                          </thead>
-                          <tbody className="bg-white">
-                            {filteredCustomerList.length === 0 ? (
-                              <tr>
-                                <td colSpan="5" className="text-center py-4">
-                                  ไม่มีข้อมูล
-                                </td>
-                              </tr>
-                            ) : (
-                              filteredCustomerList.map((data, index) => (
-                                <tr key={index} className="hover:bg-blue-300">
-                                  <td className="whitespace-no-wrap border-b border-gray-200 text-center py-2">
-                                    {data.customer_name}
-                                  </td>
-                                  <td className="whitespace-no-wrap border-b border-gray-200 text-center text-xl">
-                                    <button
-                                      className=" bg-green-600 p-1 rounded "
-                                      onClick={() => handleChooseCustomer(data)}
-                                    >
-                                      <AiOutlinePlusCircle className=" text-green-100 " />
-                                    </button>
-                                  </td>
-                                </tr>
-                              ))
-                            )}
-                          </tbody>
-                        </table>
+                        {/*  button 2 */}
+                        <button
+                          className={
+                            active == 2
+                              ? "flex px-5 py-3 mx-5 mt-3 bg-yellow-800  hover:bg-yellow-800 p-1 rounded-full text-white  font-semibold text-lg"
+                              : "flex px-5 py-3 mx-5 mt-3 bg-yellow-600  hover:bg-yellow-800 p-1 rounded-full text-white  font-semibold text-lg"
+                          }
+                          onClick={() => handleButtonValue(2)}
+                        >
+                          <div>2</div>
+                        </button>
+
+                        {/*  button 3 */}
+                        <button
+                          className={
+                            active == 3
+                              ? "flex px-5 py-3 mx-5 mt-3 bg-red-800  hover:bg-red-800 p-1 rounded-full text-white  font-semibold text-lg"
+                              : "flex px-5 py-3 mx-5 mt-3 bg-red-600  hover:bg-red-800 p-1 rounded-full text-white  font-semibold text-lg"
+                          }
+                          onClick={() => handleButtonValue(3)}
+                        >
+                          <div>3</div>
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
-              )}
-
-              <div className="w-full  mt-10 flex-col justify-center   ">
-                <div className="flex flex-col lg:flex-row justify-center  items-center">
-                  {/*  button รีเซ็ท */}
-                  <button
-                    className={
-                      active == 0
-                        ? "flex  px-3 py-4 mx-5   lg:mt-2  bg-gray-800  hover:bg-gray-800 p-1 rounded-full text-white  font-semibold"
-                        : "flex  px-3 py-4 mx-5 lg:mt-2  bg-gray-600  hover:bg-gray-800 p-1 rounded-full text-white  font-semibold"
-                    }
-                    onClick={() => handleButtonValue(0)}
-                  >
-                    <div>รีเซ็ท </div>
-                  </button>
-
-                  {/*  button 1 */}
-                  <button
-                    className={
-                      active == 1
-                        ? "flex px-5 py-3 mx-5 mt-3  bg-green-800  hover:bg-green-800 p-1 rounded-full text-white  font-semibold text-lg"
-                        : "flex px-5 py-3 mx-5 mt-3  bg-green-600  hover:bg-green-800 p-1 rounded-full text-white  font-semibold text-lg"
-                    }
-                    onClick={() => handleButtonValue(1)}
-                  >
-                    1<span className="text-green-600">.</span>
-                  </button>
-
-                  {/*  button 2 */}
-                  <button
-                    className={
-                      active == 2
-                        ? "flex px-5 py-3 mx-5 mt-3 bg-yellow-800  hover:bg-yellow-800 p-1 rounded-full text-white  font-semibold text-lg"
-                        : "flex px-5 py-3 mx-5 mt-3 bg-yellow-600  hover:bg-yellow-800 p-1 rounded-full text-white  font-semibold text-lg"
-                    }
-                    onClick={() => handleButtonValue(2)}
-                  >
-                    <div>2</div>
-                  </button>
-
-                  {/*  button 3 */}
-                  <button
-                    className={
-                      active == 3
-                        ? "flex px-5 py-3 mx-5 mt-3 bg-red-800  hover:bg-red-800 p-1 rounded-full text-white  font-semibold text-lg"
-                        : "flex px-5 py-3 mx-5 mt-3 bg-red-600  hover:bg-red-800 p-1 rounded-full text-white  font-semibold text-lg"
-                    }
-                    onClick={() => handleButtonValue(3)}
-                  >
-                    <div>3</div>
-                  </button>
-                </div>
               </div>
-            </div>
 
-            {!isSmallScreen2 && (
-              <div className="w-1/2 ms-3 sm:ms-0 ">
+              <div className=" w-full lg:w-1/2 ms-3 sm:ms-0 ">
                 <div className="flex-col  w-full  justify-center items-center">
                   <div className="w-full flex-col  justify-center">
                     <div className=" flex flex-col lg:flex-row lg:mt-3 lg:justify-center">
@@ -991,15 +865,15 @@ function Menu3() {
                         <input
                           type="text"
                           placeholder="ใส่ชื่อที่ต้องการค้นหา"
-                          className="flex w-[90%] border rounded-lg bg-gray-200 text-center sm:mt-5 md:mt-5 lg:mt-0 lg:py-2 px-2 py-1 leading-tight text-gray-700  shadow-md appearance-none focus:outline-none focus:shadow-outline"
+                          className="flex w-[90%] sm:w-[70%] md:w-[70%] border rounded-lg bg-gray-200 text-center sm:mt-5 md:mt-5 lg:mt-0 lg:py-2 px-2 py-1 md:py-2 leading-tight text-gray-700  shadow-md appearance-none focus:outline-none focus:shadow-outline"
                           value={searchText}
                           onChange={(e) => setSearchText(e.target.value)}
                         />
                       </div>
 
-                      <div className="flex  justify-center lg:justify-start  w-full lg:w-[30%]">
+                      <div className="flex mt-3  justify-center lg:justify-start  w-full lg:w-[30%]">
                         <button
-                          className=" hover:bg-blue-300 hover:text-black w-[110px] lg:w-full py-2  ms-2   mt-3 lg:mt-0 lg:ms-0 text-sm  md:ms-7  text-sky-500 font-semibold  bg-sky-300 active:bg-sky-300 active:text-white  bg-opacity-30  rounded-lg focus:outline-none focus:shadow-outline"
+                          className=" hover:bg-blue-300 hover:text-black w-[110px] lg:w-full py-2  ms-2   mt-3 lg:mt-0 lg:ms-0 lg:mb-2 text-sm  md:ms-7  text-sky-500 font-semibold  bg-sky-300 active:bg-sky-300 active:text-white  bg-opacity-30  rounded-lg focus:outline-none focus:shadow-outline"
                           // onClick={handleAddCustomer}
                           onClick={openModal3}
                         >
@@ -1060,9 +934,11 @@ function Menu3() {
                       )}
                     </div>
 
-                    <div className="w-full mt-3  overflow-x-auto  max-h-96 sm:max-h-96  md:max-h-72 lg:max-h-48 flex-col rounded-lg justify-center ">
+                    {/* ตารางผู้ร่วมประมูล */}
+
+                    <div className="w-full mt-5  overflow-x-auto  max-h-96 sm:max-h-96  md:max-h-72 lg:max-h-48 flex-col rounded-lg justify-center ">
                       <div className=" w-full flex justify-center items-center align-middle">
-                        <table className="w-full  bg-white  ">
+                        <table className="w-full border border-gray-300 shadow-lg bg-white p-5  ">
                           <thead className="sticky top-0 ">
                             <tr>
                               <th className=" px-6 py-3 border-b border-gray-200 bg-indigo-300 text-center font-semibold text-sm leading-4  tracking-wider">
@@ -1107,7 +983,7 @@ function Menu3() {
      </h1> */}
                 </div>
               </div>
-            )}
+            </div>
           </div>
           <hr className="my-3  border-black" /> {/* เส้นคั่น */}
           <div className="w-full flex justify-center mb-5 space-x-5   ">
