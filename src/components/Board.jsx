@@ -2,6 +2,7 @@ import bgImage from "../images/bg.jpg";
 import lanternRight2 from "../images/lantern-right-2.png";
 import lionright from "../images/lion-right.gif";
 import { useEffect, useState } from "react";
+
 import axios from "axios";
 import "../App.css";
 
@@ -162,14 +163,14 @@ function Board() {
               <img src={lionright} alt="lanternLeft" />
             </div>
 
-            <div className=" flex flex-col justify-center items-center w-full   sm:mt-5 lg:mt-0 bg-opacity-40 bg-red-200  transform translate-y-20 mx-16  pb-5  sm:pb-10 md:pb-15 lg:pb-20   rounded-3xl">
+            <div className=" flex flex-col justify-center items-center w-full  pb-36  sm:mt-5 lg:mt-0 bg-opacity-40 bg-red-200  transform translate-y-20 mx-3 lg:mx-16  sm:pb-10 md:pb-15 lg:pb-20   rounded-3xl">
               <div className="flex justify-center ">
-                <h1 className="text-stroke-white1 text-gradient1 text-2xl sm:text-4xl lg:text-5xl mt-5 text-center font-black ">
+                <h1 className="text-stroke-white1 text-gradient1 text-2xl sm:text-4xl sm:mt-12 lg:text-5xl mt-28 lg:mt-12  text-center font-black ">
                   ขอแสดงความยินดี
                 </h1>
               </div>
 
-              <div className="flex w-[90%] justify-center text-center items-center mt-7 sm:w-[70%] md:w-[40%] lg:mt-10 sm:text-2xl lg:text-4xl bg-red-900 rounded-lg border-2 sm:py-1 border-yellow-400 text-white">
+              <div className="flex w-[90%] justify-center text-center items-center mt-7 sm:w-[70%] md:w-[40%] lg:mt-10 text-xl sm:text-2xl lg:text-4xl bg-red-900 rounded-lg border-2 sm:py-1 border-yellow-400 text-white">
                 <h1>
                   {" "}
                   {showTop?.[0]?.user_auction && showTop[0].user_auction !== ""
@@ -188,7 +189,7 @@ function Board() {
               </div>
 
               <div>
-                <h1 className="text-stroke-white text-gradient  text-xl sm:text-5xl text-center mt-5  font-bold ">
+                <h1 className="text-stroke-white text-gradient  text-2xl sm:text-5xl text-center mt-5  font-bold ">
                   มูลค่า{" "}
                   <span>
                     {" "}
@@ -203,14 +204,14 @@ function Board() {
             </div>
           </div>
         ) : (
-          <div className="w-full flex">
+          <div className="w-full flex ">
             {loadStatus && statusB === "1" ? (
               <div
                 className={` ${
                   number < 1 || number > 3
                     ? ""
                     : "bg-white shadow-lg shadow-black"
-                }  w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30   translate-y-12 rounded-full flex items-center justify-center right-10 absolute z-40`}
+                }  w-20 h-20 sm:w-24 sm:h-24 md:w-30 md:h-30  translate-y-12 translate-x-9 lg:translate-x-0  lg:translate-y-12 rounded-full flex items-center justify-center right-10 absolute z-40`}
               >
                 {number === "1" && (
                   <img
@@ -241,21 +242,21 @@ function Board() {
 
             {loadStatus ? (
               <div
-                className={`w-full pt-10 pb-5   bg-opacity-40 ${
-                  Title ? "bg-red-200" : ""
-                }  transform translate-y-20 mx-20  lg:pt-5  sm:pb-3 lg:py-10   rounded-3xl  `}
+                className={`w-full pt-10 pb-36 bg-opacity-40 ${
+                  Title ? "bg-red-200 " : ""
+                }  transform translate-y-20 mx-5 md:mx-10 lg:mx-16 xl:mx-20  lg:pt-5  sm:pb-3 lg:py-10   rounded-3xl  `}
               >
                 <div className="flex justify-center ">
                   <h1 className=" pt-5 pb-5 text-stroke-white text-gradient text-3xl sm:text-6xl text-center  font-bold">
                     {Title ? Title : ""}
                   </h1>
                 </div>
-                <div className="flex justify-center mt-5 ">
+                <div className="flex justify-center mt-5  ">
                   {loadStatus ? (
                     <div
                       className={`flex w-[90%] justify-center ${
                         gift ? "bg-white" : ""
-                      }  text-center text-sm   rounded-full px-5 py-1 shadow-lg border-black font-bold  text-red-700  sm:text-xl md:text-2xl`}
+                      }  text-center text-sm   rounded-full px-5 py-1 shadow-lg  border-black font-bold  text-red-700  sm:text-xl md:text-2xl`}
                     >
                       {gift && gift}
                     </div>

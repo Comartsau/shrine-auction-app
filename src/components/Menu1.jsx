@@ -207,7 +207,7 @@ function Menu1() {
             </button>
           </div>
         </div>
-        <div className="w-full  p-4  flex justify-center items-center   mt-2 md:mt-0">
+        <div className="w-full  p-4  flex justify-center items-center mt-2 md:mt-0">
           {isLoading ? (
             <p>Loading...</p>
           ) : (
@@ -285,8 +285,8 @@ function Menu1() {
           contentLabel="Edit Modal"
           style={{
             content: {
-              width: "50%",
-              height: "50%",
+              width: "70%",
+              height: "70%",
               // position:"fixed",
               top: "50%",
               left: "50%",
@@ -309,17 +309,17 @@ function Menu1() {
               >
                 <BiLogOut className="  text-3xl  text-center justify-center" />
               </button>
-              <h2 className=" text-center font-semibold text-xl  mb-5  md-mb-10 ">
+              <h2 className=" text-center font-semibold text-xl  mb-5  md:mb-10 ">
                 แก้ไขหัวข้อประมูล
               </h2>
               <input
-                className="w-[50%] px-3 py-2 text-sm leading-tight text-gray-700 rounded-lg shadow-lg appearance-none focus:outline-none focus:shadow-outline mb-4"
+                className="w-[70%] md:w-[55%] lg:w-[50%] xl:w-[40%] px-3 py-2 text-sm leading-tight text-gray-700 rounded-lg shadow-lg appearance-none focus:outline-none focus:shadow-outline mb-4"
                 type="text"
                 value={modalInput}
                 onChange={handleInputChange}
               />
-              <div className="w-full sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] sm:px-2 md:px-5  flex flex-col sm:flex-row justify-center items-center sm:justify-between  ">
-                <label className="flex items-center space-x-2 mt-3">
+              <div className="w-full sm:w-[60%] md:w-[52%] lg:w-[42%] xl:w-[35%] sm:px-2 md:px-5  flex flex-col sm:flex-row justify-center items-center sm:justify-between  ">
+                <label className="flex items-center space-x-2  mt-3">
                   <input
                     type="radio"
                     name="status"
@@ -342,7 +342,7 @@ function Menu1() {
               </div>
 
               <button
-                className="w-[30%] px-4 py-2 mt-7  text-green-500 font-semibold  bg-green-300 active:bg-green-300 active:text-white  bg-opacity-30  rounded-lg focus:outline-none focus:shadow-outline"
+                className="w-[30%] lg:w-[20%] px-4 py-2 mt-7  text-green-500 font-semibold  bg-green-300 active:bg-green-300 active:text-white  bg-opacity-30  rounded-lg focus:outline-none focus:shadow-outline"
                 onClick={handleSave}
               >
                 บันทึก

@@ -64,29 +64,35 @@ function Login() {
   return (
     <div className="flex items-center justify-center bg-gray-100 min-h-screen">
       <div className="w-full max-w-xs bg-white rounded-lg shadow-lg ">
-          <div className="mb-6 mt-3 text-center w-full  font-bold text-lg text-indigo-800 " >
+          <div className="mb-6 mt-7 text-center w-full  font-bold text-lg text-indigo-800 " >
             <p className="">ระบบประมูลศาลเจ้า</p>
             <p>ปึงเถ่า-กงม่า</p>
           </div>
-        <form className="px-8  pb-8" onSubmit={handleSubmit}>
+        <form className="px-8  pb-8 py-5" onSubmit={handleSubmit}>
+          <div>
+            <h1 className=" text-gray-700 mb-3">ชื่อผู้ใช้ :</h1>
+          </div>
           <div className="mb-6">
             <input
-              className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded-lg  shadow-md appearance-none focus:outline-none focus:shadow-outline"
+              className="w-full px-3 py-2 text-sm leading-tight text-gray-700 bg-gray-50 border rounded-lg  shadow-lg appearance-none focus:outline-none focus:shadow-outline"
               id="username"
               name="username"
               type="text"
-              placeholder="Username"
+              placeholder="ป้อนชื่อผู้ใช้งาน"
               value={userLogin.username}
               onChange={handleInputChange}
             />
           </div>
           <div className="mb-6">
+          <div>
+            <h1 className="text-gray-700 mb-3">รหัสผ่าน :</h1>
+          </div>
             <input
-              className="w-full px-3 py-2  text-sm leading-tight text-gray-700 border rounded-lg shadow-md appearance-none focus:outline-none focus:shadow-outline"
+              className="w-full px-3 py-2  text-sm leading-tight text-gray-700 bg-gray-50 border rounded-lg shadow-lg appearance-none focus:outline-none focus:shadow-outline"
               id="password"
               type="password"
               name="password"
-              placeholder="********"
+              placeholder="ป้อนรหัสผ่าน"
               value={userLogin.password}
               onChange={handleInputChange}
             />
@@ -97,9 +103,9 @@ function Login() {
             )}
           </div>
 
-          <div className="mb-6  text-center  justify-center align-middle">
+          <div className="  text-center  justify-center align-middle">
             <button
-              className=" w-[70%] px-5 py-2 font-bold  text-white shadow-md bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:shadow-outline"
+              className=" w-[70%] px-5 py-2 font-bold  text-white shadow-lg bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:shadow-outline"
               type="submit"
             >
               เข้าสู่ระบบ
