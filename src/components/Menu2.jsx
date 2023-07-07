@@ -30,6 +30,7 @@ function Menu2() {
   const [chooseCustomer, setChooseCustomer] = useState("");
   const [chooseCustomerId, setChooseCustomerId] = useState("");
   const [inputLabel, setInputLabel] = useState("0");
+  const [inputLabel2, setInputLabel2] = useState("0");
   const [inputGive, setInputGive] = useState("");
   const [saveGive, setSaveGive] = useState([]);
   const [customerList, setCustomerList] = useState([]);
@@ -375,7 +376,7 @@ function Menu2() {
   };
 
   const formattedGiveList = giveList.map((data) => data.name);
-  const newData = `ฉลากออมสิน จำนวน ${inputLabel} ใบ, ${formattedGiveList.join(
+  const newData = `ฉลากออมสิน จำนวน ${inputLabel} ใบ,ลอตเตอรี่ จำนวน ${inputLabel} ใบ, ${formattedGiveList.join(
     ", "
   )}`;
 
@@ -612,6 +613,21 @@ function Menu2() {
                       value={inputLabel}
                       className=" w-full text-center md:text-end border rounded-lg  bg-gray-200  px-2 py-1 leading-tight text-gray-700  shadow-md appearance-none focus:outline-none focus:shadow-outline"
                       onChange={(e) => setInputLabel(e.target.value)}
+                    />
+                  </div>
+                  <div className="flex justify-center mt-3 md:mt-0 md:ms-3 ">
+                    <h1 className="flex">ใบ</h1>
+                  </div>
+                  <div className="md:text-sm lg:text-base">
+                    <h1>/ลอตเตอรี่</h1>
+                  </div>
+                  <div className="flex w-[40%] md:w-[10%] justify-center  mt-3 md:mt-0 md:ms-3 ">
+                    <input
+                      type="text"
+                      name="label"
+                      value={inputLabel2}
+                      className=" w-full text-center md:text-end border rounded-lg  bg-gray-200  px-2 py-1 leading-tight text-gray-700  shadow-md appearance-none focus:outline-none focus:shadow-outline"
+                      onChange={(e) => setInputLabel2(e.target.value)}
                     />
                   </div>
                   <div className="flex justify-center mt-3 md:mt-0 md:ms-3 ">
