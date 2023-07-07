@@ -420,10 +420,7 @@ const Delivery = ({ reportData }) => {
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableCell1}> 2 </Text>
-              <Text style={styles.tableCell2}>
-                {" "}
-                ของแถม : {data.auction_report_gift}{" "}
-              </Text>
+              <Text style={[styles.tableCell2, {textAlign:"left"}]}>ของแถม : {data.auction_report_gift}{" "}</Text>
               <Text style={styles.tableCell3}> </Text>
               <Text style={styles.tableCell4}> </Text>
             </View>
