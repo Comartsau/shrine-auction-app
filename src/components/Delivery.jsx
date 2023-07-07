@@ -12,7 +12,7 @@ import FontSarabunBold from "../fonts/Sarabun-ExtraBold.ttf";
 import FontSarabunLight from "../fonts/Sarabun-ExtraBold.ttf";
 import Prompt from "../fonts/Prompt-Regular.ttf";
 import Mitr from "../fonts/Mitr-Regular.ttf";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
 Font.register({
   family: "Sarabun",
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     borderColor: "#000",
     textAlign: "center",
     width: "10%", // แบ่งเป็น 3 ส่วนเท่า ๆ กัน (ขนาดเท่ากัน)
-    height:"100%"
+    height: "100%",
   },
   tableCell2: {
     margin: "auto",
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
     borderColor: "#000",
     textAlign: "center",
     width: "60%", // แบ่งเป็น 3 ส่วนเท่า ๆ กัน (ขนาดเท่ากัน)
-    height:"auto"
+    height: "auto",
   },
   tableCell3: {
     margin: "auto",
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     borderColor: "#000",
     textAlign: "center",
     width: "10%", // แบ่งเป็น 3 ส่วนเท่า ๆ กัน (ขนาดเท่ากัน)
-    height:"100%"
+    height: "100%",
   },
   tableCell4: {
     margin: "auto",
@@ -192,8 +192,7 @@ const styles = StyleSheet.create({
     borderColor: "#000",
     textAlign: "center",
     width: "20%", // แบ่งเป็น 3 ส่วนเท่า ๆ กัน (ขนาดเท่ากัน)
-    height:"100%"
-    
+    height: "100%",
   },
   tableCell5: {
     margin: "auto",
@@ -215,18 +214,16 @@ const styles = StyleSheet.create({
   },
 });
 
-const Delivery = ({reportData} ) => {
-
+const Delivery = ({ reportData }) => {
   // console.log(reportData[0])
-  const [data,setData] = useState(reportData[0])
-
-
+  const [data, setData] = useState(reportData[0]);
 
   // const date = new Date();
   return (
     <Document>
       {/* <Page size={[842, 595]} style={styles.page}> */}
-      <Page size={[575, 875]} style={styles.page}>
+      {/*  9 x 11 นิ้ว (792 คือ 9 นิ้ว x 72 คือ DPI, 936 คือ 11 นิ้ว x 72 คือ DPI) */}
+      <Page size="A4" style={styles.page}>
         <View style={styles.flexrowbetween}>
           <View style={styles.flexrow}>
             <Text style={[styles.textsm, styles.spacesm]}> </Text>
@@ -236,9 +233,7 @@ const Delivery = ({reportData} ) => {
                 { fontWeight: "light" },
                 { fontFamily: "Sarabun" },
               ]}
-            >
-            
-            </Text>
+            ></Text>
           </View>
           <View style={styles.flexrow}>
             <Text style={[styles.textsm, styles.spacesm]}>เลขที่ </Text>
@@ -275,7 +270,7 @@ const Delivery = ({reportData} ) => {
               ประจำปี{" "}
             </Text>
             <Text style={[styles.flexrowcenter, styles.textlg, styles.mtsm]}>
-            {data.current_date}
+              {data.current_date}
             </Text>
           </View>
           <View style={styles.flexrowstart}>
@@ -404,7 +399,7 @@ const Delivery = ({reportData} ) => {
             </View>
           </View>
 
-          <View style={[styles.table, {marginTop:"15"}]}>
+          <View style={[styles.table, { marginTop: "15" }]}>
             <View style={styles.tableRow}>
               <Text style={styles.tableCell1}>ลำดับ </Text>
               <Text style={styles.tableCell2}>รายละเอียด </Text>
@@ -413,155 +408,167 @@ const Delivery = ({reportData} ) => {
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableCell1}> 1 </Text>
-              <Text style={styles.tableCell2}> {data.auction_report_auctionstarted} </Text>
-              <Text style={styles.tableCell3}> </Text>
-              <Text style={styles.tableCell4}> </Text>
-       
+              <Text style={styles.tableCell2}>
+                {" "}
+                {data.auction_report_auctionstarted}{" "}
+              </Text>
+              <Text style={styles.tableCell3}> 1 </Text>
+              <Text style={styles.tableCell4}>
+                {" "}
+                {data.auction_report_price.toLocaleString()}{" "}
+              </Text>
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableCell1}> 2 </Text>
-              <Text style={styles.tableCell2}> ของแถม : {data.auction_report_gift}    </Text>
+              <Text style={styles.tableCell2}>
+                {" "}
+                ของแถม : {data.auction_report_gift}{" "}
+              </Text>
               <Text style={styles.tableCell3}> </Text>
               <Text style={styles.tableCell4}> </Text>
-           
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableCell1}> </Text>
               <Text style={styles.tableCell2}> </Text>
               <Text style={styles.tableCell3}> </Text>
               <Text style={styles.tableCell4}> </Text>
-           
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableCell1}> </Text>
               <Text style={styles.tableCell2}> </Text>
               <Text style={styles.tableCell3}> </Text>
               <Text style={styles.tableCell4}> </Text>
-           
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableCell1}> </Text>
               <Text style={styles.tableCell2}> </Text>
               <Text style={styles.tableCell3}> </Text>
               <Text style={styles.tableCell4}> </Text>
-       
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableCell1}> </Text>
               <Text style={styles.tableCell2}> </Text>
               <Text style={styles.tableCell3}> </Text>
               <Text style={styles.tableCell4}> </Text>
-           
             </View>
- 
+
             <View style={styles.tableRow}>
               <Text style={styles.tableCell1}> </Text>
               <Text style={styles.tableCell2}> ออกสลากธนาคาร-ในนาม </Text>
               <Text style={styles.tableCell3}> </Text>
               <Text style={styles.tableCell4}> </Text>
-          
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableCell1}> </Text>
               <Text style={styles.tableCell2}> </Text>
               <Text style={styles.tableCell3}> </Text>
               <Text style={styles.tableCell4}> </Text>
-     
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableCell1}> </Text>
-              <Text style={[styles.tableCell6  ]}>  </Text>
+              <Text style={[styles.tableCell6]}> </Text>
               <Text style={styles.tableCell3}> รวมเงิน </Text>
-              <Text style={styles.tableCell4}>{data.auction_report_price.toLocaleString()} </Text>
+              <Text style={styles.tableCell4}>
+                {data.auction_report_price.toLocaleString()}{" "}
+              </Text>
             </View>
           </View>
-          <View style={styles.flexrowstart}>
-            <Text
+          <View style={[styles.flexrowbetween]}>
+            <View>
+              <View style={styles.flexrowstart}>
+                <Text
+                  style={[
+                    { fontWeight: "extrabold" },
+                    { fontFamily: "SarabunBold" },
+                    { fontSize: "12" },
+                    styles.mtsm,
+                    styles.spacemd,
+                  ]}
+                >
+                  ชื่อผู้บริจาค/ผู้ได้รับของ{" "}
+                </Text>
+                <Text
+                  style={[
+                    { fontWeight: "light" },
+                    { fontFamily: "Sarabun" },
+                    { fontSize: "12" },
+                    styles.mtsm,
+                  ]}
+                >
+                  ................................................................
+                </Text>
+              </View>
+              <View style={styles.flexrowstart}>
+                <Text
+                  style={[
+                    { fontWeight: "extrabold" },
+                    { fontFamily: "SarabunBold" },
+                    { fontSize: "12" },
+                    styles.mtsm,
+                    styles.spacemd,
+                  ]}
+                >
+                  กรรมการผู้ส่งของ{" "}
+                </Text>
+                <Text
+                  style={[
+                    { fontWeight: "light" },
+                    { fontFamily: "Sarabun" },
+                    { fontSize: "12" },
+                    styles.mtsm,
+                  ]}
+                >
+                  ................................................................
+                </Text>
+              </View>
+              <View style={styles.flexrowstart}>
+                <Text
+                  style={[
+                    { fontWeight: "extrabold" },
+                    { fontFamily: "SarabunBold" },
+                    { fontSize: "12" },
+                    styles.mtsm,
+                    styles.spacemd,
+                  ]}
+                >
+                  ผู้รับเงิน{" "}
+                </Text>
+                <Text
+                  style={[
+                    { fontWeight: "light" },
+                    { fontFamily: "Sarabun" },
+                    { fontSize: "12" },
+                    styles.mtsm,
+                  ]}
+                >
+                  ................................................................
+                </Text>
+              </View>
+              <View style={styles.flexrowstart}>
+                <Text
+                  style={[
+                    { fontWeight: "extrabold" },
+                    { fontFamily: "SarabunBold" },
+                    { fontSize: "10" },
+                    { marginLeft: 90 },
+                    styles.mtsm,
+                    styles.spacemd,
+                  ]}
+                >
+                  (กรณ๊ชำระเงินสดเท่านั้น){" "}
+                </Text>
+              </View>
+            </View>
+            <View
               style={[
-                { fontWeight: "extrabold" },
-                { fontFamily: "SarabunBold" },
-                { fontSize: "12" },
-                styles.mtsm,
-                styles.spacemd,
+                styles.imageContainer,
+                styles.flexrow,
+                { alignSelf: "flex-end" },
               ]}
             >
-              ชื่อผู้บริจาค/ผู้ได้รับของ{" "}
-            </Text>
-            <Text
-              style={[
-                { fontWeight: "light" },
-                { fontFamily: "Sarabun" },
-                { fontSize: "12" },
-                styles.mtsm,
-          
-              ]}
-            >
-              ................................................................
-            </Text>
+              <Image src="../images/qrcode.png" style={styles.image1} />
+            </View>
           </View>
-          <View style={styles.flexrowstart}>
-            <Text
-              style={[
-                { fontWeight: "extrabold" },
-                { fontFamily: "SarabunBold" },
-                { fontSize: "12" },
-                styles.mtsm,
-                styles.spacemd,
-              ]}
-            >
-              กรรมการผู้ส่งของ{" "}
-            </Text>
-            <Text
-              style={[
-                { fontWeight: "light" },
-                { fontFamily: "Sarabun" },
-                { fontSize: "12" },
-                styles.mtsm,
-              
-              ]}
-            >
-              ................................................................
-            </Text>
-          </View>
-          <View style={styles.flexrowstart}>
-            <Text
-              style={[
-                { fontWeight: "extrabold" },
-                { fontFamily: "SarabunBold" },
-                { fontSize: "12" },
-                styles.mtsm,
-                styles.spacemd,
-              ]}
-            >
-              ผู้รับเงิน{" "}
-            </Text>
-            <Text
-              style={[
-                { fontWeight: "light" },
-                { fontFamily: "Sarabun" },
-                { fontSize: "12" },
-                styles.mtsm,
-               
-              ]}
-            >
-              ................................................................
-            </Text>
-          </View>
-          <View style={styles.flexrowstart}>
-            <Text
-              style={[
-                { fontWeight: "extrabold" },
-                { fontFamily: "SarabunBold" },
-                { fontSize: "10" },{marginLeft:90},
-                styles.mtsm,
-                styles.spacemd,
-              ]}
-            >
-            (กรณ๊ชำระเงินสดเท่านั้น)   </Text>
-          </View>
-        </View>
-          <View style={[styles.imageContainer, styles.flexrow,{alignSelf:"flex-end"}, ]}>
-          <Image src="../images/qrcode.png" style={styles.image1} />
         </View>
       </Page>
     </Document>
