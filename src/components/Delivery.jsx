@@ -12,6 +12,7 @@ import FontSarabunBold from "../fonts/Sarabun-ExtraBold.ttf";
 import FontSarabunLight from "../fonts/Sarabun-ExtraBold.ttf";
 import Prompt from "../fonts/Prompt-Regular.ttf";
 import Mitr from "../fonts/Mitr-Regular.ttf";
+import { useState,useEffect } from "react";
 
 Font.register({
   family: "Sarabun",
@@ -37,7 +38,7 @@ Font.register({
 const styles = StyleSheet.create({
   page: {
     flexDirection: "column",
-    backgroundColor: "#E4E4E4",
+    // backgroundColor: "ffff",
     padding: 20,
     margin: 1,
     fontFamily: "SarabunLight",
@@ -128,8 +129,8 @@ const styles = StyleSheet.create({
     height: 70,
   },
   image1: {
-    width: 70,
-    height: 70,
+    width: 90,
+    height: 90,
   },
   mtsm: {
     marginTop: 10,
@@ -161,6 +162,7 @@ const styles = StyleSheet.create({
     borderColor: "#000",
     textAlign: "center",
     width: "10%", // แบ่งเป็น 3 ส่วนเท่า ๆ กัน (ขนาดเท่ากัน)
+    height:"100%"
   },
   tableCell2: {
     margin: "auto",
@@ -169,7 +171,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#000",
     textAlign: "center",
-    width: "30%", // แบ่งเป็น 3 ส่วนเท่า ๆ กัน (ขนาดเท่ากัน)
+    width: "60%", // แบ่งเป็น 3 ส่วนเท่า ๆ กัน (ขนาดเท่ากัน)
+    height:"auto"
   },
   tableCell3: {
     margin: "auto",
@@ -179,6 +182,7 @@ const styles = StyleSheet.create({
     borderColor: "#000",
     textAlign: "center",
     width: "10%", // แบ่งเป็น 3 ส่วนเท่า ๆ กัน (ขนาดเท่ากัน)
+    height:"100%"
   },
   tableCell4: {
     margin: "auto",
@@ -187,7 +191,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#000",
     textAlign: "center",
-    width: "30%", // แบ่งเป็น 3 ส่วนเท่า ๆ กัน (ขนาดเท่ากัน)
+    width: "20%", // แบ่งเป็น 3 ส่วนเท่า ๆ กัน (ขนาดเท่ากัน)
+    height:"100%"
+    
   },
   tableCell5: {
     margin: "auto",
@@ -196,7 +202,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#000",
     textAlign: "center",
-    width: "20%", // แบ่งเป็น 3 ส่วนเท่า ๆ กัน (ขนาดเท่ากัน)
+    width: "10%", // แบ่งเป็น 3 ส่วนเท่า ๆ กัน (ขนาดเท่ากัน)
   },
   tableCell6: {
     margin: "auto",
@@ -205,11 +211,17 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#000",
     textAlign: "center",
-    width: "40%", // แบ่งเป็น 3 ส่วนเท่า ๆ กัน (ขนาดเท่ากัน)
+    width: "60%", // แบ่งเป็น 3 ส่วนเท่า ๆ กัน (ขนาดเท่ากัน)
   },
 });
 
-const Delivery = () => {
+const Delivery = ({reportData} ) => {
+
+  // console.log(reportData[0])
+  const [data,setData] = useState(reportData[0])
+
+
+
   // const date = new Date();
   return (
     <Document>
@@ -217,7 +229,7 @@ const Delivery = () => {
       <Page size={[575, 875]} style={styles.page}>
         <View style={styles.flexrowbetween}>
           <View style={styles.flexrow}>
-            <Text style={[styles.textsm, styles.spacesm]}>เล่มที่ </Text>
+            <Text style={[styles.textsm, styles.spacesm]}> </Text>
             <Text
               style={[
                 styles.textsm,
@@ -225,7 +237,7 @@ const Delivery = () => {
                 { fontFamily: "Sarabun" },
               ]}
             >
-              1234{" "}
+            
             </Text>
           </View>
           <View style={styles.flexrow}>
@@ -237,13 +249,13 @@ const Delivery = () => {
                 { fontFamily: "Sarabun" },
               ]}
             >
-              00001{" "}
+              {data.number}
             </Text>
           </View>
         </View>
         <View style={[styles.imageContainer, styles.flexrow]}>
-          <Image src="../images/deliverylogo1.jpg" style={styles.image} />
-          <Image src="../images/deliverylogo2.jpg" style={styles.image} />
+          <Image src="../images/รูปอาม่า01.png" style={styles.image} />
+          <Image src="../images/รูปอากง02.png" style={styles.image} />
         </View>
         <View>
           <Text
@@ -263,8 +275,7 @@ const Delivery = () => {
               ประจำปี{" "}
             </Text>
             <Text style={[styles.flexrowcenter, styles.textlg, styles.mtsm]}>
-              {" "}
-              2566{" "}
+            {data.current_date}
             </Text>
           </View>
           <View style={styles.flexrowstart}>
@@ -288,7 +299,7 @@ const Delivery = () => {
                 styles.underlineText,
               ]}
             >
-              04/07/2566{" "}
+              {data.auction_report_date}
             </Text>
           </View>
           <View style={styles.flexrowstart}>
@@ -312,7 +323,7 @@ const Delivery = () => {
                 styles.underlineText,
               ]}
             >
-              หจก.มงคลทรัพย์{" "}
+              {data.customer_name}
             </Text>
           </View>
           <View style={styles.flexrowstart}>
@@ -336,8 +347,7 @@ const Delivery = () => {
                 styles.underlineText,
               ]}
             >
-              {" "}
-              111/222 อ.เมือง จ.ขอนอแก่น 109876{" "}
+              {data.customer_address}
             </Text>
           </View>
           <View style={styles.flexrow}>
@@ -364,7 +374,7 @@ const Delivery = () => {
                 ]}
               >
                 {" "}
-                0861234567{" "}
+                {data.customer_tel}
               </Text>
             </View>
             <View style={styles.flexrowstart}>
@@ -389,8 +399,7 @@ const Delivery = () => {
                   styles.mtsm,
                 ]}
               >
-                {" "}
-                @abcdef{" "}
+                {data.customer_line}
               </Text>
             </View>
           </View>
@@ -400,50 +409,49 @@ const Delivery = () => {
               <Text style={styles.tableCell1}>ลำดับ </Text>
               <Text style={styles.tableCell2}>รายละเอียด </Text>
               <Text style={styles.tableCell3}>จำนวน </Text>
-              <Text style={styles.tableCell4}>ล็อตเตอรี่/สลาก </Text>
-              <Text style={styles.tableCell5}>จำนวนเงิน </Text>
+              <Text style={styles.tableCell4}>จำนวนเงิน </Text>
+            </View>
+            <View style={styles.tableRow}>
+              <Text style={styles.tableCell1}> 1 </Text>
+              <Text style={styles.tableCell2}> {data.auction_report_auctionstarted} </Text>
+              <Text style={styles.tableCell3}> </Text>
+              <Text style={styles.tableCell4}> </Text>
+       
+            </View>
+            <View style={styles.tableRow}>
+              <Text style={styles.tableCell1}> 2 </Text>
+              <Text style={styles.tableCell2}> ของแถม : {data.auction_report_gift}    </Text>
+              <Text style={styles.tableCell3}> </Text>
+              <Text style={styles.tableCell4}> </Text>
+           
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableCell1}> </Text>
               <Text style={styles.tableCell2}> </Text>
               <Text style={styles.tableCell3}> </Text>
               <Text style={styles.tableCell4}> </Text>
-              <Text style={styles.tableCell5}> </Text>
+           
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableCell1}> </Text>
               <Text style={styles.tableCell2}> </Text>
               <Text style={styles.tableCell3}> </Text>
               <Text style={styles.tableCell4}> </Text>
-              <Text style={styles.tableCell5}> </Text>
+           
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableCell1}> </Text>
               <Text style={styles.tableCell2}> </Text>
               <Text style={styles.tableCell3}> </Text>
               <Text style={styles.tableCell4}> </Text>
-              <Text style={styles.tableCell5}> </Text>
+       
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableCell1}> </Text>
               <Text style={styles.tableCell2}> </Text>
               <Text style={styles.tableCell3}> </Text>
               <Text style={styles.tableCell4}> </Text>
-              <Text style={styles.tableCell5}> </Text>
-            </View>
-            <View style={styles.tableRow}>
-              <Text style={styles.tableCell1}> </Text>
-              <Text style={styles.tableCell2}> </Text>
-              <Text style={styles.tableCell3}> </Text>
-              <Text style={styles.tableCell4}> </Text>
-              <Text style={styles.tableCell5}> </Text>
-            </View>
-            <View style={styles.tableRow}>
-              <Text style={styles.tableCell1}> </Text>
-              <Text style={styles.tableCell2}> </Text>
-              <Text style={styles.tableCell3}> </Text>
-              <Text style={styles.tableCell4}> </Text>
-              <Text style={styles.tableCell5}> </Text>
+           
             </View>
  
             <View style={styles.tableRow}>
@@ -451,20 +459,20 @@ const Delivery = () => {
               <Text style={styles.tableCell2}> ออกสลากธนาคาร-ในนาม </Text>
               <Text style={styles.tableCell3}> </Text>
               <Text style={styles.tableCell4}> </Text>
-              <Text style={styles.tableCell5}> </Text>
+          
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableCell1}> </Text>
               <Text style={styles.tableCell2}> </Text>
               <Text style={styles.tableCell3}> </Text>
               <Text style={styles.tableCell4}> </Text>
-              <Text style={styles.tableCell5}> </Text>
+     
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableCell1}> </Text>
-              <Text style={styles.tableCell6}> </Text>
-              <Text style={styles.tableCell4}> รวมเงิน </Text>
-              <Text style={styles.tableCell5}> </Text>
+              <Text style={[styles.tableCell6  ]}>  </Text>
+              <Text style={styles.tableCell3}> รวมเงิน </Text>
+              <Text style={styles.tableCell4}>{data.auction_report_price.toLocaleString()} </Text>
             </View>
           </View>
           <View style={styles.flexrowstart}>
@@ -485,10 +493,10 @@ const Delivery = () => {
                 { fontFamily: "Sarabun" },
                 { fontSize: "12" },
                 styles.mtsm,
-                styles.underlineText,
+          
               ]}
             >
-              หจก.มงคลทรัพย์{" "}
+              ................................................................
             </Text>
           </View>
           <View style={styles.flexrowstart}>
@@ -509,10 +517,10 @@ const Delivery = () => {
                 { fontFamily: "Sarabun" },
                 { fontSize: "12" },
                 styles.mtsm,
-                styles.underlineText,
+              
               ]}
             >
-              นายเมธี ร่ำรวย{" "}
+              ................................................................
             </Text>
           </View>
           <View style={styles.flexrowstart}>
@@ -533,10 +541,10 @@ const Delivery = () => {
                 { fontFamily: "Sarabun" },
                 { fontSize: "12" },
                 styles.mtsm,
-                styles.underlineText,
+               
               ]}
             >
-              นายเมธี ร่ำรวย{" "}
+              ................................................................
             </Text>
           </View>
           <View style={styles.flexrowstart}>
@@ -544,19 +552,20 @@ const Delivery = () => {
               style={[
                 { fontWeight: "extrabold" },
                 { fontFamily: "SarabunBold" },
-                { fontSize: "10" },{marginLeft:50},
+                { fontSize: "10" },{marginLeft:90},
                 styles.mtsm,
                 styles.spacemd,
               ]}
             >
-              (กรณ๊ชำระเงินสดเท่านั้น)   </Text>
+            (กรณ๊ชำระเงินสดเท่านั้น)   </Text>
           </View>
         </View>
-          <View style={[styles.imageContainer, styles.flexrow,{alignSelf:"flex-end"}, {marginHorizontal:"10"}]}>
+          <View style={[styles.imageContainer, styles.flexrow,{alignSelf:"flex-end"}, ]}>
           <Image src="../images/qrcode.png" style={styles.image1} />
         </View>
       </Page>
     </Document>
   );
 };
+
 export default Delivery;
