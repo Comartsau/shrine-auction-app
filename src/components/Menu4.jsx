@@ -412,7 +412,7 @@ function Menu4() {
                           <h1>{detailData.customer_name}</h1>
                         </div>
                         <div className="flex justify-center space-x-3 mt-5 ms-20">
-                          <h1 className=" font-bold text-end w-[170px]">ของแถมที่ได้ :</h1>
+                          <h1 className=" font-bold text-end w-[170px]">ของมงคลที่ได้ :</h1>
                           <h1 className="flex text-start">{detailData.auction_report_gift}</h1>
                         </div>
                         <div className="flex justify-center space-x-3 mt-5 ms-20">

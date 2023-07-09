@@ -8,7 +8,7 @@ import Delivery from "./Delivery";
 import FileSaver from "file-saver";
 import axios from "axios";
 import { Alert } from "@material-tailwind/react";
-
+500
 Modal.setAppElement("#root");
 
 function Menu5() {

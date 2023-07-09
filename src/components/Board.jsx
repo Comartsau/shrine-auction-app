@@ -185,7 +185,7 @@ function Board() {
                 </h1>
               </div>
               <div className="flex w-[90%] justify-center text-center  mt-3 sm:mt-5 sm:text-lg md:mt-5 lg:text-2xl lg:py-3 font-semibold ">
-                {(gift && gift) || "ของแถม : ไม่มีรายการ"}
+                {(gift && gift) || "ของมงคล : ไม่มีรายการ"}
               </div>
 
               <div>
@@ -262,7 +262,7 @@ function Board() {
                     </div>
                   ) : (
                     <div>
-                      <h1>ของแถม : ไม่มีรายการ</h1>
+                      <h1>ของมงคล : ไม่มีรายการ</h1>
                     </div>
                   )}
                 </div>

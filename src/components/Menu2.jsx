@@ -638,7 +638,7 @@ function Menu2() {
                       className=" py-2 px-3 md:text-sm text-sm lg:text-base  text-sky-500 font-semibold  bg-sky-300 hover:bg-sky-300 hover:text-black active:bg-sky-300 active:text-white  bg-opacity-30  rounded-lg focus:outline-none focus:shadow-outline"
                       onClick={openModal}
                     >
-                      เพิ่มของแถม
+                      เพิ่มของมงคล
                     </button>
                   </div>
                   <div className=" sm:mt-5 md:mt-0 md:ms-3 ">
@@ -646,7 +646,7 @@ function Menu2() {
                       className=" mb-3 sm:mb-0 py-2 px-2 sm:px-3 md:text-sm lg:text-base  mt-3 sm:mt-0 text-sm  text-green-400 font-semibold  bg-green-300 hover:bg-green-300 hover:text-black active:bg-green-300 active:text-white  bg-opacity-30  rounded-lg focus:outline-none focus:shadow-outline"
                       onClick={handleSaveGive}
                     >
-                      บันทึกของแถม
+                      บันทึกของมงคล
                     </button>
                   </div>
                   <div></div>
@@ -689,7 +689,7 @@ function Menu2() {
                 >
                   <BiLogOut className="  text-3xl  text-center justify-center" />
                 </button>
-                <h2 className="text-lg font-semibold ">เพิ่มของแถม</h2>
+                <h2 className="text-lg font-semibold ">เพิ่มของมงคล</h2>
                 <div className="flex md:w-[40%] lg:w-[30%]">
                   <input
                     type="text"
@@ -717,7 +717,7 @@ function Menu2() {
                     <thead className="sticky top-0">
                       <tr>
                         <th className=" px-6 py-3 border-b border-gray-200 bg-indigo-300 text-center font-semibold text-sm leading-4  tracking-wider">
-                          ของแถม
+                          ของมงคล
                         </th>
                         <th className="px-6 py-3 border-b border-gray-200  bg-indigo-300  text-center text-sm leading-4 font-semibold   tracking-wider">
                           แก้ไข
