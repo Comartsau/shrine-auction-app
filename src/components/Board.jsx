@@ -84,6 +84,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
       setCustomer(newData.main[0].user_auction);
       setStatusB("1");
       setPrice(newData.main[0].auction_result_price);
+      
     });
 
     // // socket_4
