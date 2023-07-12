@@ -59,18 +59,32 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
 
     // socket_2
     socket.on("show_display_2", (newData) => {
-      
-      newData.map((data) => {
-        return setGift(data.auctionstarted_gift);
-      });
+      console.log("display2 " + JSON.stringify(newData.main))
+      console.log("display2 " + JSON.stringify(newData.main[0].id_auctionstarted))
+
+      setTitle(newData.main[0].auctionstarted_auction_topic),
+      setId(newData.main[0].id_auctionstarted),
+      setStatusA(newData.main[0].auctionstarted_status_A),
+      setStatusB(newData.main[0].auctionstarted_status_B),
+      setLoadStatus("1"),
+      setDelayRender(false),
+      setGift(newData.main[0].auctionstarted_gift)
     });
 
     // socket_3
     socket.on("show_display_3", (newData) => {
-      console.log(newData)
+      console.log("display3 " + JSON.stringify(newData))
 
-      setCustomer(newData?.[0]?.user_auction);
-      setPrice(newData?.[0]?.auction_result_price);
+      setTitle(newData[0].auctionstarted_auction_topic),
+      setId(newData[0].id_auctionstarted),
+      setStatusA(newData[0].auctionstarted_status_A),
+      setStatusB(newData[0].auctionstarted_status_B),
+      setLoadStatus("1"),
+      setDelayRender(false),
+      setGift(newData[0].auctionstarted_gift)
+
+      setCustomer(newData.main[0].user_auction);
+      setPrice(newData.main[0].auction_result_price);
       if (customer) {
         setStatusB("1");
       }
@@ -107,20 +121,55 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
 
     // number_0
     socket.on("show_number_0", (newData) => {
+      console.log("number0" + JSON.stringify(newData))
+      setTitle(newData.main[0].auctionstarted_auction_topic),
+      setId(newData.main[0].id_auctionstarted),
+      setStatusA(newData.main[0].auctionstarted_status_A),
+      setStatusB(newData.main[0].auctionstarted_status_B),
+      setLoadStatus("1"),
+      setDelayRender(false),
+      setGift(newData.main[0].auctionstarted_gift)
+
+      // setCustomer(newData.main[0].user_auction);
+      // setPrice(newData.main[0].auction_result_price);
       
-      setNumber(newData);
+      setNumber(newData.data);
     });
     // number_1
     socket.on("show_number_1", (newData) => {
-      setNumber(newData);
+      console.log("number1" + JSON.stringify(newData))
+      setTitle(newData.main[0].auctionstarted_auction_topic),
+      setId(newData.main[0].id_auctionstarted),
+      setStatusA(newData.main[0].auctionstarted_status_A),
+      setStatusB(newData.main[0].auctionstarted_status_B),
+      setLoadStatus("1"),
+      setDelayRender(false),
+      setGift(newData.main[0].auctionstarted_gift)
+      setNumber(newData.data);
     });
     // number_2
     socket.on("show_number_2", (newData) => {
-      setNumber(newData);
+      console.log("number2" + JSON.stringify(newData))
+      setTitle(newData.main[0].auctionstarted_auction_topic),
+      setId(newData.main[0].id_auctionstarted),
+      setStatusA(newData.main[0].auctionstarted_status_A),
+      setStatusB(newData.main[0].auctionstarted_status_B),
+      setLoadStatus("1"),
+      setDelayRender(false),
+      setGift(newData.main[0].auctionstarted_gift)
+      setNumber(newData.data);
     });
     // number_3
     socket.on("show_number_3", (newData) => {
-      setNumber(newData);
+      console.log("number3" + JSON.stringify(newData.data))
+      setTitle(newData.main[0].auctionstarted_auction_topic),
+      setId(newData.main[0].id_auctionstarted),
+      setStatusA(newData.main[0].auctionstarted_status_A),
+      setStatusB(newData.main[0].auctionstarted_status_B),
+      setLoadStatus("1"),
+      setDelayRender(false),
+      setGift(newData.main[0].auctionstarted_gift)
+      setNumber(newData.data);
     });
   }, []);
 
@@ -244,11 +293,11 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
 
               <div className="flex w-[90%] justify-center text-center items-center mt-7 sm:w-[70%] md:w-[40%] lg:mt-10 text-xl sm:text-2xl lg:text-4xl bg-red-900 rounded-lg border-2 sm:py-1 border-yellow-400 text-white">
                 <h1>
-                  {customer}
+                  {/* {customer} */}
         
-                  {/* {showTop?.[0]?.user_auction && showTop[0].user_auction !== ""
+                  {showTop?.[0]?.user_auction && showTop[0].user_auction !== ""
                     ? showTop[0].user_auction
-                    : ""} */}
+                    : ""}
                 </h1>
               </div>
 
