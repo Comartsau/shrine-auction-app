@@ -65,7 +65,7 @@ function Login() {
     <div className="flex items-center justify-center bg-gray-100 min-h-screen">
       <div className="w-full max-w-xs bg-white rounded-lg shadow-lg ">
           <div className="mb-6 mt-7 text-center w-full  font-bold text-lg text-indigo-800 " >
-            <p className="">ระบบประมูลศาลเจ้า</p>
+            <p className="">ระบบประมูลศาลเจ้าaaaaaa</p>
             <p>ปึงเถ่า-กงม่า</p>
           </div>
         <form className="px-8  pb-8 py-5" onSubmit={handleSubmit}>
