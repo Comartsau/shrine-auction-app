@@ -32,7 +32,8 @@ function Board() {
 
 const [Title, setTitle] = useState(localStorage.getItem("Title") || "");
 const [gift, setGift] = useState(localStorage.getItem("gift") || "");
-const [customer, setCustomer] = useState([]);
+const [customer, setCustomer] = useState(localStorage.getItem("customer") || "")
+const [price, setPrice] = useState(localStorage.getItem("price") || "")
 const [number, setNumber] = useState(localStorage.getItem("number") || "");
 const [id, setId] = useState(localStorage.getItem("id") || "");
 const [statusA, setStatusA] = useState(localStorage.getItem("statusA") || "");
@@ -66,9 +67,10 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
 
     // socket_3
     socket.on("show_display_3", (newData) => {
-      setCustomer(newData);
-      
+      console.log(newData)
 
+      setCustomer(newData?.[0]?.user_auction);
+      setPrice(newData?.[0]?.auction_result_price);
       if (customer) {
         setStatusB("1");
       }
@@ -99,6 +101,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
         localStorage.removeItem("statusA");
         localStorage.removeItem("statusB");
         localStorage.removeItem("delayRender");
+        localStorage.removeItem("customer");
       }
     });
 
@@ -186,7 +189,9 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
     localStorage.setItem("statusB", statusB);
     localStorage.setItem("loadStatus", loadStatus);
     localStorage.setItem("delayRender", delayRender);
-  }, [Title, gift, number, id, statusA, statusB,loadStatus,delayRender]);
+    localStorage.setItem("customer", customer);
+    localStorage.setItem("price", price);
+  }, [Title, gift, number, id, statusA, statusB,loadStatus,delayRender,customer,price]);
 
 
 
@@ -239,10 +244,11 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
 
               <div className="flex w-[90%] justify-center text-center items-center mt-7 sm:w-[70%] md:w-[40%] lg:mt-10 text-xl sm:text-2xl lg:text-4xl bg-red-900 rounded-lg border-2 sm:py-1 border-yellow-400 text-white">
                 <h1>
-                  {" "}
-                  {showTop?.[0]?.user_auction && showTop[0].user_auction !== ""
+                  {customer}
+        
+                  {/* {showTop?.[0]?.user_auction && showTop[0].user_auction !== ""
                     ? showTop[0].user_auction
-                    : ""}
+                    : ""} */}
                 </h1>
               </div>
 
@@ -307,7 +313,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
               <div></div>
             )}
 
-            {loadStatus == 1 ? (
+            {id && id ? (
               <div
                 className={`w-full pt-10 pb-36 bg-opacity-40 ${
                   Title ? "bg-red-200 " : ""
@@ -319,7 +325,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
                   </h1>
                 </div>
                 <div className="flex justify-center mt-5  ">
-                  {loadStatus == 1 ? (
+                  {gift && gift ? (
                     <div
                       className={`flex w-[90%] justify-center ${
                         gift ? "bg-white" : ""
@@ -328,9 +334,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
                       {gift && gift}
                     </div>
                   ) : (
-                    <div>
-                      <h1>ของมงคล : ไม่มีรายการ</h1>
-                    </div>
+                  ""
                   )}
                 </div>
                 {statusB == 0 && id ? (
