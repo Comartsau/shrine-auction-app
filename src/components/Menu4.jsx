@@ -122,6 +122,7 @@ function Menu4() {
           },
         }
       );
+      console.log(response.data)
       setListData(response.data);
       setFilteredData(response.data);
       setIsLoading(false);
