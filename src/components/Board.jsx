@@ -17,7 +17,8 @@ function Board() {
   const [showTopTier, setShowTopTier] = useState([]);
   // const [loadStatus, setLoadStatus] = useState(false);
   const [loadStatus, setLoadStatus] = useState(localStorage.getItem("loadStatus") || false);
-  const [delayRender, setDelayRender] = useState(false);
+  // const [delayRender, setDelayRender] = useState(false);
+  const [delayRender, setDelayRender] = useState(localStorage.getItem("delayRender") || 0);
 
   // naii State
 
@@ -41,34 +42,33 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
   useEffect(() => {
     // socket_1
     socket.on("show_display_1", (newData) => {
+      console.log(newData)
       newData.map((data) => {
         return (
           setTitle(data.auctionstarted_auction_topic),
           setId(data.id_auctionstarted),
           setStatusA(data.auctionstarted_status_A),
           setStatusB(data.auctionstarted_status_B),
-          setLoadStatus("1")
+          setLoadStatus("1"),
+          setDelayRender(false)
         );
+        
       });
     });
 
     // socket_2
     socket.on("show_display_2", (newData) => {
+      
       newData.map((data) => {
         return setGift(data.auctionstarted_gift);
       });
-      localStorage.setItem("Title", 1);
-      localStorage.setItem("gift", 1);
-      localStorage.setItem("number", 1);
-      localStorage.setItem("id", id);
-      localStorage.setItem("statusA", 1);
-      localStorage.setItem("statusB", 0);
-      localStorage.setItem("loadStatus", 1);
     });
 
     // socket_3
     socket.on("show_display_3", (newData) => {
       setCustomer(newData);
+      
+
       if (customer) {
         setStatusB("1");
       }
@@ -98,6 +98,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
         localStorage.removeItem("id");
         localStorage.removeItem("statusA");
         localStorage.removeItem("statusB");
+        localStorage.removeItem("delayRender");
       }
     });
 
@@ -131,7 +132,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
       }
     };
 
-    const interval = setInterval(fetchData, 3000); // 1000 milliseconds = 1 second
+    const interval = setInterval(fetchData, 1000); // 1000 milliseconds = 1 second
 
     // Clear interval on component unmount
     return () => clearInterval(interval);
@@ -153,6 +154,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
       localStorage.removeItem("statusA");
       localStorage.removeItem("statusB");
       localStorage.removeItem("loadStatus");
+      localStorage.removeItem("delayRender");
     }
   }, [loadStatus]);
 
@@ -167,10 +169,11 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
           const response2 = await axios.get(`${api}/Show/Report/${id}/Detail`);
           setShowTopTier(response2.data);
         }
-        setDelayRender(true);
-      }, 3000);
+        // localStorage.setItem("delayRender", true);
+        setDelayRender(1);
+      }, 1000);
     } else {
-      setDelayRender(false);
+      setDelayRender(0);
     }
   }, [number, id]);
 
@@ -182,20 +185,27 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
     localStorage.setItem("statusA", statusA);
     localStorage.setItem("statusB", statusB);
     localStorage.setItem("loadStatus", loadStatus);
-  }, [Title, gift, number, id, statusA, statusB,loadStatus]);
+    localStorage.setItem("delayRender", delayRender);
+  }, [Title, gift, number, id, statusA, statusB,loadStatus,delayRender]);
 
 
 
 
   return (
     <div
-      className="flex flex-col h-screen w-screen bg-red-200 "
+      className="flex flex-col h-screen w-screen bg-red-200  items-center "
       style={{
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
+      {!id && (
+  <div className="flex w-[80%] mt-48 text-white text-6xl break-all justify-center">
+    กรุณารอการประมูลรอบถัดไป
+  </div>
+)}
+      
       <div className="w-full flex justify-between z-10 ">
         <div className=" flex w-[15%] sm:w-[17%] md:w-[13%] lg:w-[10%] xl:w-[10%]  absolute top-0 left-0 z-10  ">
           <img src={lanternRight2} alt="lanternLeft" />
@@ -207,16 +217,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
             alt="lanternRight"
           />
         </div>
-        {!id ? (
-          <div>dddddddddddddddd</div>
-        ):(
-          <div> 9999999 </div>
-        )}
-        
-
-        {gift && gift }
-
-        {delayRender === true ? (
+        {delayRender == 1 ? (
           <div className="flex w-full ">
             <div className=" flex w-[30%] sm:w-[25%] md:w-[25%] lg:w-[18%] xl:w-[15%]  absolute bottom-0 left-[-20px] sm:left-[-20px] md:left-[5px] lg:left-[-5px] xl:left-[5px]  z-10  ">
               <img
