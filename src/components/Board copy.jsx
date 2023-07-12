@@ -15,27 +15,20 @@ function Board() {
   const [data, setData] = useState("");
   const [showTop, setShowTop] = useState([]);
   const [showTopTier, setShowTopTier] = useState([]);
-  // const [loadStatus, setLoadStatus] = useState(false);
-  const [loadStatus, setLoadStatus] = useState(localStorage.getItem("loadStatus") || false);
+  const [loadStatus, setLoadStatus] = useState(false);
   const [delayRender, setDelayRender] = useState(false);
 
   // naii State
 
-  // const [Title, setTitle] = useState("");
-  // const [gift, setGift] = useState("");
-  // const [customer, setCustomer] = useState([]);
-  // const [number, setNumber] = useState("");
-  // const [id, setId] = useState("");
-  // const [statusA, setStatusA] = useState("");
-  // const [statusB, setStatusB] = useState("");
+  const [Title, setTitle] = useState("");
+  const [gift, setGift] = useState("");
+  const [customer, setCustomer] = useState([]);
+  const [number, setNumber] = useState("");
+  const [id, setId] = useState("");
+  const [statusA, setStatusA] = useState("");
+  const [statusB, setStatusB] = useState("");
 
-const [Title, setTitle] = useState(localStorage.getItem("Title") || "");
-const [gift, setGift] = useState(localStorage.getItem("gift") || "");
-const [customer, setCustomer] = useState([]);
-const [number, setNumber] = useState(localStorage.getItem("number") || "");
-const [id, setId] = useState(localStorage.getItem("id") || "");
-const [statusA, setStatusA] = useState(localStorage.getItem("statusA") || "");
-const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
+
 
   // naii
   useEffect(() => {
@@ -47,7 +40,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
           setId(data.id_auctionstarted),
           setStatusA(data.auctionstarted_status_A),
           setStatusB(data.auctionstarted_status_B),
-          setLoadStatus("1")
+          setLoadStatus(true)
         );
       });
     });
@@ -57,13 +50,6 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
       newData.map((data) => {
         return setGift(data.auctionstarted_gift);
       });
-      localStorage.setItem("Title", 1);
-      localStorage.setItem("gift", 1);
-      localStorage.setItem("number", 1);
-      localStorage.setItem("id", id);
-      localStorage.setItem("statusA", 1);
-      localStorage.setItem("statusB", 0);
-      localStorage.setItem("loadStatus", 1);
     });
 
     // socket_3
@@ -143,7 +129,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
     //   setShowTop([]);
     // }
 
-    if (loadStatus == 0) {
+    if (!loadStatus) {
       setData("");
       setShowTop([]);
       localStorage.removeItem("Title");
@@ -152,7 +138,6 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
       localStorage.removeItem("id");
       localStorage.removeItem("statusA");
       localStorage.removeItem("statusB");
-      localStorage.removeItem("loadStatus");
     }
   }, [loadStatus]);
 
@@ -181,8 +166,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
     localStorage.setItem("id", id);
     localStorage.setItem("statusA", statusA);
     localStorage.setItem("statusB", statusB);
-    localStorage.setItem("loadStatus", loadStatus);
-  }, [Title, gift, number, id, statusA, statusB,loadStatus]);
+  }, [Title, gift, number, id, statusA, statusB]);
 
 
 
@@ -207,8 +191,6 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
             alt="lanternRight"
           />
         </div>
-
-        {gift && gift }
 
         {delayRender === true ? (
           <div className="flex w-full ">
@@ -265,7 +247,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
           </div>
         ) : (
           <div className="w-full flex ">
-            {loadStatus == 1 && statusB === "1" ? (
+            {loadStatus && statusB === "1" ? (
               <div
                 className={` ${
                   number < 1 || number > 3
@@ -300,7 +282,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
               <div></div>
             )}
 
-            {loadStatus == 1 ? (
+            {loadStatus ? (
               <div
                 className={`w-full pt-10 pb-36 bg-opacity-40 ${
                   Title ? "bg-red-200 " : ""
@@ -312,7 +294,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
                   </h1>
                 </div>
                 <div className="flex justify-center mt-5  ">
-                  {loadStatus == 1 ? (
+                  {loadStatus ? (
                     <div
                       className={`flex w-[90%] justify-center ${
                         gift ? "bg-white" : ""
@@ -326,7 +308,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
                     </div>
                   )}
                 </div>
-                {statusB == 0 && id ? (
+                {statusB == 0 ? (
                   <div className="flex w-full justify-center sm:mt-5 text-3xl md:text-5xl py-6   text-center items-center align-middle font-bold">
                     <div className="flex flex-col">
                       <h1 className=" mb-2 sm:mb-10">ขอเชิญร่วมการประมูล</h1>

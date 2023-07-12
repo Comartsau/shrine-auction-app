@@ -376,7 +376,7 @@ function Menu2() {
   };
 
   const formattedGiveList = giveList.map((data) => data.name);
-  const newData = `ฉลากออมสิน จำนวน ${inputLabel} ใบ,ลอตเตอรี่ จำนวน ${inputLabel} ใบ, ${formattedGiveList.join(
+  const newData = `ฉลากออมสิน จำนวน ${inputLabel} ใบ,ลอตเตอรี่ จำนวน ${inputLabel2} ใบ, ${formattedGiveList.join(
     ", "
   )}`;
 
