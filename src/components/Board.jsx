@@ -78,16 +78,12 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
       setTitle(newData[0].auctionstarted_auction_topic),
       setId(newData[0].id_auctionstarted),
       setStatusA(newData[0].auctionstarted_status_A),
-      setStatusB(newData[0].auctionstarted_status_B),
       setLoadStatus("1"),
       setDelayRender(false),
       setGift(newData[0].auctionstarted_gift)
-
       setCustomer(newData.main[0].user_auction);
+      setStatusB("1");
       setPrice(newData.main[0].auction_result_price);
-      if (customer) {
-        setStatusB("1");
-      }
     });
 
     // // socket_4
@@ -167,7 +163,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
       setStatusA(newData.main[0].auctionstarted_status_A),
       setStatusB(newData.main[0].auctionstarted_status_B),
       setLoadStatus("1"),
-      setDelayRender(false),
+      setDelayRender("1"),
       setGift(newData.main[0].auctionstarted_gift)
       setNumber(newData.data);
     });
