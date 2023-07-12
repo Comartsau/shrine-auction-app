@@ -207,6 +207,12 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
             alt="lanternRight"
           />
         </div>
+        {!id ? (
+          <div>dddddddddddddddd</div>
+        ):(
+          <div> 9999999 </div>
+        )}
+        
 
         {gift && gift }
 
