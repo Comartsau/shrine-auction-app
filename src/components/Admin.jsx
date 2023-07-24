@@ -160,7 +160,7 @@ function Admin() {
                     src={menu3Logo}
                   />
                 </div>
-                <div className="text-xs md:text-base md:pr-5">ผู้ร่วมประมูล</div>
+                <div className="text-xs md:text-base md:pr-5">ข้อมูลผู้ร่วมประมูล</div>
               </div>
 
 

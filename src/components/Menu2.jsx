@@ -376,7 +376,7 @@ function Menu2() {
   };
 
   const formattedGiveList = giveList.map((data) => data.name);
-  const newData = `ฉลากออมสิน จำนวน ${inputLabel} ใบ,ลอตเตอรี่ จำนวน ${inputLabel2} ใบ, ${formattedGiveList.join(
+  const newData = `ฉลากออมสิน  ${inputLabel} ใบ,ลอตเตอรี่  ${inputLabel2} ใบ, ${formattedGiveList.join(
     ", "
   )}`;
 
@@ -437,6 +437,7 @@ function Menu2() {
       setSaveGive([]);
       setGiveList([]);
       setInputLabel("0");
+      setInputLabel2("0");
       localStorage.removeItem("id_auctionstarted");
       setid_auctionstarted("")
     } catch (error) {
@@ -559,7 +560,7 @@ function Menu2() {
               onClick={handleEndAuction}
               className="w-full text-sm font-semibold px-4 py-2 lg:mx-10  xl:pr-5 text-red-500 bg-red-300 bg-opacity-50 rounded-lg hover:bg-red-300 hover:text-black  focus:outline-none focus:shadow-outline"
             >
-              จบประมูล
+              เคลียห้องประมูล
             </button>
           ) : (
             <button
@@ -569,7 +570,7 @@ function Menu2() {
               <img src={logout} className="  text-center  justify-center" />
             </button>
           )}
-        </div>
+        </div> 
       </div>
       <div className=" bg-white rounded-lg my-5 mx-5 h-full ">
         {/* Content */}

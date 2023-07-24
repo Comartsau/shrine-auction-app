@@ -288,7 +288,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
                 </h1>
               </div>
 
-              <div className="flex w-[90%] justify-center text-center items-center mt-7 sm:w-[80%] md:w-[90%] lg:mt-10 text-3xl sm:text-5xl lg:text-6xl bg-red-900 rounded-lg border-2 sm:py-1 border-yellow-400 text-white">
+              <div className="flex w-[90%] justify-center text-center items-center mt-7 sm:w-[70%] md:w-[40%] lg:mt-10 text-xl sm:text-2xl lg:text-4xl bg-red-900 rounded-lg border-2 sm:py-1 border-yellow-400 text-white">
                 <h1>
                   {/* {customer} */}
         
@@ -299,16 +299,16 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
               </div>
 
               <div className="flex justify-center  ">
-                <h1 className=" text-stroke-white2 text-gradient2 text-6xl sm:text-6xl text-center mt-5 sm:mt-10  font-bold">
+                <h1 className=" text-stroke-white2 text-gradient2 text-5xl sm:text-5xl text-center mt-5 sm:mt-10  font-bold">
                   {Title && Title ? Title : ""}
                 </h1>
               </div>
-              <div className="flex w-[90%] justify-center text-center  mt-3 sm:mt-5 sm:text-3xl md:mt-5 lg:text-3xl lg:py-3 font-semibold ">
+              <div className="flex w-[90%] justify-center text-center  mt-3 sm:mt-5 sm:text-3xl md:mt-5 lg:text-5xl lg:py-3 font-semibold ">
                 {(gift && gift) || "ของมงคล : ไม่มีรายการ"}
               </div>
 
               <div>
-                <h1 className="text-stroke-white text-gradient1 py-2  text-2xl sm:text-5xl text-center mt-5  font-bold ">
+                <h1 className="text-stroke-white text-gradient  text-2xl sm:text-5xl text-center mt-5  font-bold ">
                   มูลค่า{" "}
                   <span>
                     {" "}
@@ -361,9 +361,9 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
 
             {id && id ? (
               <div
-                className={`w-full  pt-5 pb-32 bg-opacity-40  ${
-                  Title ? "bg-red-200   " : ""
-                }  transform translate-y-20 mx-5 md:mx-10 lg:mx-10 xl:mx-10  lg:pt-5  sm:pb-3 lg:py-10   rounded-3xl  `}
+                className={`w-full pt-10 pb-36 bg-opacity-40 ${
+                  Title ? "bg-red-200 " : ""
+                }  transform translate-y-20 mx-5 md:mx-10 lg:mx-16 xl:mx-20  lg:pt-5  sm:pb-3 lg:py-10   rounded-3xl  `}
               >
                 <div className="flex justify-center ">
                   <h1 className=" pt-5 pb-5 text-stroke-white text-gradient text-3xl sm:text-7xl text-center  font-bold">
@@ -375,7 +375,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
                     <div
                       className={`flex w-[90%] justify-center ${
                         gift ? "bg-white" : ""
-                      }  text-center text-xl   rounded-full px-5 py-3 shadow-lg  border-black font-bold  text-red-700  sm:text-3xl md:text-3xl`}
+                      }  text-center text-xl   rounded-full px-5 py-3 shadow-lg  border-black font-bold  text-red-700  sm:text-3xl md:text-5xl`}
                     >
                       {gift && gift}
                     </div>
@@ -393,7 +393,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
                 ) : (
                   <div className="flex flex-col justify-center items-center mt-5">
                     {showTop.length > 0 && showTop[0] && (
-                      <div className="w-full max-w-[90%] md:w-[80%] lg:w-[100%] xl:w-[100%]  mt-3 sm:mt-5 font-bold  bg-opacity-70 bg-red-100 sm:text-3xl md:text-4xl lg:text-4xl py-4  shadow-md shadow-black rounded-2xl px-3">
+                      <div className="w-full max-w-[90%] md:w-[80%] lg:w-[80%] xl:w-[80%]  mt-3 sm:mt-5 font-bold  bg-opacity-70 bg-red-100  sm:text-3xl md:text-5xl lg:text-5xl py-4  shadow-md shadow-black rounded-2xl px-3">
                         <div className="flex justify-between">
                           <div>
                             <h1>
@@ -412,7 +412,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
                       </div>
                     )}
                     {showTop.length > 1 && showTop[1] && (
-                      <div className="w-full max-w-[90%] md:w-[80%] lg:w-[100%] xl:w-[100%] mt-5 text-sm sm:mt-1 md:mt-5 font-bold  sm:text-xl md:text-4xl lg:text-4xl py-4 md:py-2 lg:py-5 rounded-lg px-3">
+                      <div className="w-full max-w-[90%] md:w-[80%] lg:w-[80%] xl:w-[80%] mt-5 text-sm sm:mt-1 md:mt-5 font-bold  sm:text-xl md:text-3xl lg:text-5xl py-4 md:py-2 lg:py-5 rounded-lg px-3">
                         <div className="flex justify-between">
                           <div>
                             <h1>
@@ -431,7 +431,7 @@ const [statusB, setStatusB] = useState(localStorage.getItem("statusB") || "");
                       </div>
                     )}
                     {showTop.length > 2 && showTop[2] && (
-                      <div className="w-full max-w-[90%] md:w-[80%] lg:w-[100%] xl:w-[100%] mt-5 font-bold text-sm   sm:text-xl md:text-4xl lg:text-4xl   md:py-2 lg:py-4 rounded-lg px-3 ">
+                      <div className="w-full max-w-[90%] md:w-[80%] lg:w-[80%] xl:w-[80%] mt-5 font-bold text-sm   sm:text-xl md:text-3xl lg:text-5xl   md:py-2 lg:py-4 rounded-lg px-3 ">
                         <div className="flex justify-between">
                           <div>
                             <h1>

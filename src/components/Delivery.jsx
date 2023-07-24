@@ -83,6 +83,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     textAlign: "center",
   },
+  flexrowend: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent:"flex-end",
+    textAlign:"center",
+  },
   flexrowstart: {
     display: "flex",
     flexDirection: "row",
@@ -256,24 +262,24 @@ const Delivery = ({ reportData }) => {
           <Text
             style={[
               styles.flexrowcenter,
-              styles.textlg,
+              styles.textbase,
               { fontWeight: "thin" },
             ]}
           >
             ใบรับของ{" "}
           </Text>
-          <Text style={[styles.flexrowcenter, styles.textlg, styles.mtsm]}>
+          <Text style={[styles.flexrowcenter, styles.textbase, styles.mtsm]}>
             คณะกรรมการจัดงานศาลเจ้าปึงเถ่ากงม่า ขอนแก่น{" "}
           </Text>
           <View style={styles.flexrowcenter}>
-            <Text style={[styles.flexrowcenter, styles.textlg, styles.mtsm]}>
+            <Text style={[styles.flexrowcenter, styles.textbase, styles.mtsm]}>
               ประจำปี{" "}
             </Text>
-            <Text style={[styles.flexrowcenter, styles.textlg, styles.mtsm]}>
+            <Text style={[styles.flexrowcenter, styles.textbase, styles.mtsm]}>
               {data.current_date}
             </Text>
           </View>
-          <View style={styles.flexrowstart}>
+          <View style={styles.flexrowend}>
             <Text
               style={[
                 { fontWeight: "extrabold" },
@@ -291,7 +297,7 @@ const Delivery = ({ reportData }) => {
                 { fontFamily: "Sarabun" },
                 { fontSize: "12" },
                 { marginTop: "20" },
-                styles.underlineText,
+               
               ]}
             >
               {data.auction_report_date}
@@ -315,7 +321,7 @@ const Delivery = ({ reportData }) => {
                 { fontFamily: "Sarabun" },
                 { fontSize: "12" },
                 styles.mtsm,
-                styles.underlineText,
+               
               ]}
             >
               {data.customer_name}
@@ -331,7 +337,7 @@ const Delivery = ({ reportData }) => {
                 styles.spacemd,
               ]}
             >
-              ที่อยู่ (จัดส่ง){" "}
+              ที่อยู่ผู้บริจาค{" "}
             </Text>
             <Text
               style={[
@@ -339,13 +345,40 @@ const Delivery = ({ reportData }) => {
                 { fontFamily: "Sarabun" },
                 { fontSize: "12" },
                 styles.mtsm,
-                styles.underlineText,
+             
               ]}
             >
               {data.customer_address}
             </Text>
           </View>
-          <View style={styles.flexrow}>
+          <View style={styles.flexrowbetween}>
+       
+            <View style={styles.flexrowstart}>
+            <Text
+              style={[
+                { fontWeight: "extrabold" },
+                { fontFamily: "SarabunBold" },
+                { fontSize: "12" },
+                styles.mtsm,
+                styles.spacemd,
+              ]}
+            >
+              สถานที่จัดส่ง{" "}
+            </Text>
+            <Text
+              style={[
+                { fontWeight: "light" },
+                { fontFamily: "Sarabun" },
+                { fontSize: "12" },
+                styles.mtsm,
+             
+              ]}
+            >
+              {data.customer_address}
+            </Text>
+          </View>
+          
+            <View style={styles.flexrow}>
             <View style={styles.flexrowstart}>
               <Text
                 style={[
@@ -365,7 +398,7 @@ const Delivery = ({ reportData }) => {
                   { fontSize: "12" },
                   styles.mtsm,
                   styles.spacemd,
-                  styles.underlineText,
+               
                 ]}
               >
                 {" "}
@@ -388,15 +421,18 @@ const Delivery = ({ reportData }) => {
               <Text
                 style={[
                   { fontWeight: "light" },
-                  { textDecoration: "underline" },
                   { fontFamily: "Sarabun" },
                   { fontSize: "12" },
                   styles.mtsm,
+                  
                 ]}
               >
                 {data.customer_line}
               </Text>
             </View>
+
+            </View>
+          
           </View>
 
           <View style={[styles.table, { marginTop: "15" }]}>
@@ -408,7 +444,7 @@ const Delivery = ({ reportData }) => {
             </View>
             <View style={styles.tableRow}>
               <Text style={styles.tableCell1}> 1 </Text>
-              <Text style={styles.tableCell2}>
+              <Text style={[styles.tableCell2 ,{textAlign:"left"}]}>
                 {" "}
                 {data.auction_report_auctionstarted}{" "}
               </Text>
@@ -556,7 +592,7 @@ const Delivery = ({ reportData }) => {
                 </Text>
               </View>
             </View>
-            <View
+            {/* <View
               style={[
                 styles.imageContainer,
                 styles.flexrow,
@@ -564,7 +600,7 @@ const Delivery = ({ reportData }) => {
               ]}
             >
               <Image src="../images/qrcode.png" style={styles.image1} />
-            </View>
+            </View> */}
           </View>
         </View>
       </Page>
