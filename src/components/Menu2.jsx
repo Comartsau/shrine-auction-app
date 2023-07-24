@@ -39,6 +39,9 @@ function Menu2() {
   const [selectedButton, setSelectedButton] = useState("0");
   const [selectedAuction, setSelectedAuction] = useState("");
   const [inputPrice, setInputPrice] = useState(0);
+  const [value, setValue] = useState(0);
+  const [value3, setValue3] = useState(0);
+  const [massage,setMassage] = useState("")
   const [filteredCustomerList, setFilteredCustomerList] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [id_auctionstarted, setid_auctionstarted] = useState("");
@@ -288,6 +291,7 @@ function Menu2() {
   };
 
   const handleSave = async () => {
+
     const dataToSend = {
       user_auction: chooseCustomerId,
       auction_result_price: Number(inputPrice),
@@ -326,8 +330,10 @@ function Menu2() {
           }
         );
         // console.log(response.data);
+
         setChooseCustomer("");
-        setInputPrice(0);
+      
+        // setInputPrice(0);
         setShowAlert1(true);
         setTimeout(() => {
           setShowAlert1(false);
@@ -530,6 +536,25 @@ function Menu2() {
   //   }
   // };
   // console.log(reportData);
+  
+  
+  const max = Number(value3);
+  const handleChange = (event) => {
+    const value2 = event.target.value;
+    setValue(value2);
+
+    if (Number(value2) <= max) {
+      setValue(0);
+      if (value2 !== "") {
+        setMassage(`ต่ำกว่า ${max} กรุณากรอกใหม่ !`);
+      }
+    } else {
+      setValue(value2);
+      setValue3(value2);
+      setInputPrice(value2);
+      setMassage("");
+    }
+  };
 
   return (
     <div className=" flex flex-col  bg-gray-200 h-screen m-0  ">
@@ -794,14 +819,15 @@ function Menu2() {
                     <div className="w-[30%] sm:w-[30%] md:w-[15%] mt-3 md:mt-0 md:ms-0 lg:mt-0  lg:w-[30%] flex justify-center sm:justify-start lg:justify-start lg:ms-0  lg:mr-2">
                       <input
                         type="number"
-                        min="0"
-                        value={inputPrice}
-                        onChange={(e) => setInputPrice(e.target.value)}
+                        defaultValue={value}
+                        // value={inputPrice}
+                        onChange={ handleChange }
                         className=" w-full justify-center lg:justify-start items-center lg:py-2  text-center lg:text-end  border rounded-lg bg-gray-200  px-2 py-1 leading-tight text-gray-700 shadow-md appearance-none focus:outline-none focus:shadow-outline "
                       />
                     </div>
                     {/* <div className="flex mt-3 justify-center text-sm ">บาท</div> */}
-                    <div className="flex mt-5 md:mt-0 lg:mt-0 w-[30%] sm:w-[30%] md:w-[17%] md:ms-10 lg:w-[30%] items-center justify-center ">
+                    <div className="flex-col mt-5 md:mt-0 lg:mt-0 w-[30%] sm:w-[30%] md:w-[17%] md:ms-10 lg:w-[30%] items-center justify-center ">
+                      {massage ? (<div className=" flex justify-center tex-center text-red-500"> {massage} </div>) :               <div>
                       <button
                         className=" flex w-full py-2 lg:mt-1 hover:bg-green-300 hover:text-black   text-green-500 font-semibold  bg-green-300  active:bg-green-300 active:text-white bg-opacity-30  rounded-lg focus:outline-none focus:shadow-outline"
                         onClick={handleSave}
@@ -811,8 +837,12 @@ function Menu2() {
                           บันทึก
                         </h1>
                       </button>
+                        </div>}
+        
+                
                     </div>
                   </div>
+              
 
                   <div className="w-full  mt-10 sm:mt-5 flex-col justify-center lg:mt-40   ">
                     <div className="flex flex-col  sm:flex-row justify-center  items-center">
