@@ -43,7 +43,7 @@ function Login() {
         },
       }
       );
-      console.log(response)
+      // console.log(response)
 
       // ตรวจสอบผลลัพธ์ที่ได้จากเว็บเซิร์ฟเวอร์
       if (response.data.check === "1"  ) {

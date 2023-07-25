@@ -309,7 +309,6 @@ function Menu2() {
   };
 
   const handleSave = async () => {
-    // setValue(0);
 
     const dataToSend = {
       user_auction: chooseCustomerId,
@@ -349,8 +348,10 @@ function Menu2() {
           }
         );
         // console.log(response.data);
-
+        
+        setValue3(value);
         setChooseCustomer("");
+        setChooseCustomerId("");
         setValue(0);
         setShowAlert1(true);
         setTimeout(() => {
@@ -571,7 +572,7 @@ function Menu2() {
       }
     } else {
       setValue(value2);
-      setValue3(value2);
+      // setValue3(value2);
       setInputPrice(value2);
       setMassage("");
     }
@@ -587,7 +588,7 @@ function Menu2() {
         <div className="flex w-[30%] items-center align-bottom  text-end">
           {showAlert1 && (
             <Alert
-              open={open}
+              open={showAlert1}
               onClose={() => setShowAlert1(false)}
               className=" flex bg-red-50 bg-opacity-25 text-end text-green-600 font-semibold  justify-center align-middle items-center my-0 py-0  text-lg "
               animate={{
