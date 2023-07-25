@@ -308,9 +308,27 @@ function Menu3() {
   };
 
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    navigate("/");
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post(
+        "https://bankcash1.herokuapp.com/logout",
+        {
+
+        },      
+        { headers: { 
+          "Content-Type": "application/json",
+          Authorization: `Token ${Token}`
+        },
+      }
+      );
+      console.log(response)
+      localStorage.removeItem("token");
+      navigate("/");
+
+      
+    } catch (error) {
+      console.error("เกิดข้อผิดพลาดในการ logout" + error)
+    }
   };
 
   return (

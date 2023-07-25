@@ -214,9 +214,27 @@ function Menu2() {
 
   // },[id_auctionstarted])
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    navigate("/");
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post(
+        "https://bankcash1.herokuapp.com/logout",
+        {
+
+        },      
+        { headers: { 
+          "Content-Type": "application/json",
+          Authorization: `Token ${Token}`
+        },
+      }
+      );
+      console.log(response)
+      localStorage.removeItem("token");
+      navigate("/");
+
+      
+    } catch (error) {
+      console.error("เกิดข้อผิดพลาดในการ logout" + error)
+    }
   };
 
   const handleAddCustomer = async () => {
@@ -291,6 +309,7 @@ function Menu2() {
   };
 
   const handleSave = async () => {
+    // setValue(0);
 
     const dataToSend = {
       user_auction: chooseCustomerId,
@@ -332,11 +351,10 @@ function Menu2() {
         // console.log(response.data);
 
         setChooseCustomer("");
-      
-        // setInputPrice(0);
+        setValue(0);
         setShowAlert1(true);
         setTimeout(() => {
-          setShowAlert1(false);
+        setShowAlert1(false);
         }, 1500); // เวลาในหน่วยมิลลิวินาที (2000 มิลลิวินาที = 2 วินาที
       } catch (error) {
         console.error(error);
@@ -444,6 +462,9 @@ function Menu2() {
       setGiveList([]);
       setInputLabel("0");
       setInputLabel2("0");
+      setValue(0)
+      setValue3(0)
+      setInputPrice(0)
       localStorage.removeItem("id_auctionstarted");
       setid_auctionstarted("")
     } catch (error) {
@@ -544,9 +565,9 @@ function Menu2() {
     setValue(value2);
 
     if (Number(value2) <= max) {
-      setValue(0);
+      // setValue(0);
       if (value2 !== "") {
-        setMassage(`ต่ำกว่า ${max} กรุณากรอกใหม่ !`);
+        setMassage(`ต้องมากกว่า ${max} กรุณากรอกใหม่ !`);
       }
     } else {
       setValue(value2);
@@ -819,15 +840,20 @@ function Menu2() {
                     <div className="w-[30%] sm:w-[30%] md:w-[15%] mt-3 md:mt-0 md:ms-0 lg:mt-0  lg:w-[30%] flex justify-center sm:justify-start lg:justify-start lg:ms-0  lg:mr-2">
                       <input
                         type="number"
-                        defaultValue={value}
-                        // value={inputPrice}
+                        // defaultValue={value}
+                        value={value}
                         onChange={ handleChange }
                         className=" w-full justify-center lg:justify-start items-center lg:py-2  text-center lg:text-end  border rounded-lg bg-gray-200  px-2 py-1 leading-tight text-gray-700 shadow-md appearance-none focus:outline-none focus:shadow-outline "
                       />
                     </div>
                     {/* <div className="flex mt-3 justify-center text-sm ">บาท</div> */}
                     <div className="flex-col mt-5 md:mt-0 lg:mt-0 w-[30%] sm:w-[30%] md:w-[17%] md:ms-10 lg:w-[30%] items-center justify-center ">
-                      {massage ? (<div className=" flex justify-center tex-center text-red-500"> {massage} </div>) :               <div>
+                      {massage ? 
+                      <div className=" flex justify-center tex-center text-red-500"> 
+                      <p className=" text-center">{massage}</p> 
+                      </div>
+                       :               
+                      <div>
                       <button
                         className=" flex w-full py-2 lg:mt-1 hover:bg-green-300 hover:text-black   text-green-500 font-semibold  bg-green-300  active:bg-green-300 active:text-white bg-opacity-30  rounded-lg focus:outline-none focus:shadow-outline"
                         onClick={handleSave}
