@@ -12,12 +12,27 @@ function Login() {
     password: "",
   });
 
+  // useEffect(() => {
+  //   const storedUserLogin = localStorage.getItem("userLogin");
+  //   if (storedUserLogin) {
+  //     setUserLogin(JSON.parse(storedUserLogin));
+  //   }
+  // }, []);
+  // -------------------------------------------------------
+  
+  // check have Token to /admin
+
   useEffect(() => {
     const storedUserLogin = localStorage.getItem("userLogin");
     if (storedUserLogin) {
       setUserLogin(JSON.parse(storedUserLogin));
     }
-  }, []);
+
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      navigate("/admin");
+    }
+  }, [navigate]);
 
   const handleInputChange = (e) => {
     setUserLogin({
